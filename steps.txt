@@ -1,0 +1,2 @@
+To start this project,
+First you have to two terminal command "npm start" one is inside "../aries$" and the other is inside "../aries/Client/my-app$"
