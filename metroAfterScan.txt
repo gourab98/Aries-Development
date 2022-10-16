@@ -1,0 +1,377 @@
+DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation services. {
+  "services": [
+    {
+      "id": "#inline",
+      "serviceEndpoint": "https",
+      "type": "did-communication",
+      "recipientKeys": [
+        "did:key:z6Mksy81KBBTMYAa3NYLE45dTU4rEPStMnFYw4Sb2hrvJ7YD"
+      ]
+    }
+  ]
+}
+ DEBUG  DEBUG: Retrieved 0 connections for invitation did did:peer:2.SeyJzIjoiaHR0cHMiLCJ0IjoiZGlkLWNvbW11bmljYXRpb24iLCJwcmlvcml0eSI6MCwicmVjaXBpZW50S2V5cyI6WyJkaWQ6a2V5Ono2TWtzeTgxS0JCVE1ZQWEzTllMRTQ1ZFRVNHJFUFN0TW5GWXc0U2IyaHJ2SjdZRCN6Nk1rc3k4MUtCQlRNWUFhM05ZTEU0NWRUVTRyRVBTdE1uRll3NFNiMmhydko3WUQiXX0
+ DEBUG  DEBUG: Out of band message contains handshake protocols.
+ DEBUG  DEBUG: Connection does not exist or reuse is disabled. Creating a new connection.
+ DEBUG  DEBUG: Send outbound message {
+  "message": {
+    "@type": "https://didcomm.org/coordinate-mediation/1.0/keylist-update",
+    "@id": "d9f8d6ef-a0ca-4482-be6e-762607dcaaba",
+    "updates": [
+      {
+        "recipient_key": "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323",
+        "action": "add"
+      }
+    ]
+  },
+  "connectionId": "7887fd82-691b-4ad1-9274-c9f7053f153b"
+}
+ DEBUG  DEBUG: Retrieving services for connection '7887fd82-691b-4ad1-9274-c9f7053f153b' (Indicio Public Mediator) {
+  "connection": {
+    "_tags": {
+      "state": "completed",
+      "did": "did:peer:1zQmZs4FDYkvNKDiwwT711AQA7X8ak2usU11nkSRqbBjjyQc",
+      "threadId": "94345e76-99ba-4bf0-a079-203c1c35a012",
+      "outOfBandId": "46f39259-8fc5-4021-a9d6-7a5b4d55cd2f",
+      "theirDid": "did:peer:1zQmeY2g4DVnB2iaspUp3W22TUQRd3A59FB6xQjmk69AwuED",
+      "invitationDid": "did:peer:2.SeyJzIjoiaHR0cDovL21lZGlhdG9yMy50ZXN0LmluZGljaW90ZWNoLmlvOjMwMDAiLCJ0IjoiZGlkLWNvbW11bmljYXRpb24iLCJwcmlvcml0eSI6MCwicmVjaXBpZW50S2V5cyI6WyJkaWQ6a2V5Ono2TWtzYmtadHJwSzNHMkp3cTVlZnFyY0VQalJlTEoxTm9xaEdhaFY5aVFHSjh3VSN6Nk1rc2JrWnRycEszRzJKd3E1ZWZxcmNFUGpSZUxKMU5vcWhHYWhWOWlRR0o4d1UiXX0",
+      "role": "requester"
+    },
+    "metadata": {},
+    "id": "7887fd82-691b-4ad1-9274-c9f7053f153b",
+    "createdAt": "2022-09-26T17:19:40.002Z",
+    "did": "did:peer:1zQmZs4FDYkvNKDiwwT711AQA7X8ak2usU11nkSRqbBjjyQc",
+    "invitationDid": "did:peer:2.SeyJzIjoiaHR0cDovL21lZGlhdG9yMy50ZXN0LmluZGljaW90ZWNoLmlvOjMwMDAiLCJ0IjoiZGlkLWNvbW11bmljYXRpb24iLCJwcmlvcml0eSI6MCwicmVjaXBpZW50S2V5cyI6WyJkaWQ6a2V5Ono2TWtzYmtadHJwSzNHMkp3cTVlZnFyY0VQalJlTEoxTm9xaEdhaFY5aVFHSjh3VSN6Nk1rc2JrWnRycEszRzJKd3E1ZWZxcmNFUGpSZUxKMU5vcWhHYWhWOWlRR0o4d1UiXX0",
+    "theirLabel": "Indicio Public Mediator",
+    "state": "completed",
+    "role": "requester",
+    "autoAcceptConnection": true,
+    "threadId": "94345e76-99ba-4bf0-a079-203c1c35a012",
+    "protocol": "https://didcomm.org/connections/1.0",
+    "outOfBandId": "46f39259-8fc5-4021-a9d6-7a5b4d55cd2f",
+    "theirDid": "did:peer:1zQmeY2g4DVnB2iaspUp3W22TUQRd3A59FB6xQjmk69AwuED"
+  }
+}
+ DEBUG  DEBUG: Resolving services for connection theirDid did:peer:1zQmeY2g4DVnB2iaspUp3W22TUQRd3A59FB6xQjmk69AwuED.
+ DEBUG  DEBUG: Resolving services for did did:peer:1zQmeY2g4DVnB2iaspUp3W22TUQRd3A59FB6xQjmk69AwuED.
+ DEBUG  DEBUG: resolving didUrl did:peer:1zQmeY2g4DVnB2iaspUp3W22TUQRd3A59FB6xQjmk69AwuED
+ DEBUG  DEBUG: Retrieved 2 services for message to connection '7887fd82-691b-4ad1-9274-c9f7053f153b'(Indicio Public Mediator)' {
+  "hasQueueService": false
+}
+ DEBUG  DEBUG: resolving didUrl did:peer:1zQmZs4FDYkvNKDiwwT711AQA7X8ak2usU11nkSRqbBjjyQc
+ DEBUG  DEBUG: Sending outbound message to service: {
+  "messageId": "d9f8d6ef-a0ca-4482-be6e-762607dcaaba",
+  "service": {
+    "id": "#indy",
+    "recipientKeys": "omitted...",
+    "routingKeys": "omitted...",
+    "serviceEndpoint": "https://public.mediator.indiciotech.io"
+  }
+}
+ DEBUG  DEBUG: Pack outbound message https://didcomm.org/coordinate-mediation/1.0/keylist-update
+ DEBUG  DEBUG: Sending outbound message to endpoint 'https://public.mediator.indiciotech.io' {
+  "payload": {
+    "protected": "eyJlbmMiOiJ4Y2hhY2hhMjBwb2x5MTMwNV9pZXRmIiwidHlwIjoiSldNLzEuMCIsImFsZyI6IkF1dGhjcnlwdCIsInJlY2lwaWVudHMiOlt7ImVuY3J5cHRlZF9rZXkiOiJ2bHU0OEdjaExGR01ybGtCQXpGdFQzT3ktMXZmSnpHZm4xdkhfTnlMQllVOEh5Q0tORWd1OWV1WlVCa245RjRUIiwiaGVhZGVyIjp7ImtpZCI6IkduMWNDYkhYc3B1OGhOcGVjdVB2RlZvMTFzdHBQRG1KZ3BkUGFlUXNOenEyIiwiaXYiOiI3bnRDTmw5VjIzYW0tcHhFeGhGMzJtYWVVRURKNU1HdyIsInNlbmRlciI6IllqSkt4bEhHeWJVRnl5UWpEUVRqbzV0N0NkU2wzX0VyS0pNQVMwaG9RRVdmVE9GZTlWcE1HSDZiejdxdTBIVldlNkdaaE1sYTRnN3hTejc5UWY3S2gwbF9tWW9xdWc2U3c3QUhtZ3l3bElfM1JUU3Q0ckc0b0s4X09ubz0ifX1dfQ==",
+    "iv": "lmbcGpAsYoPkjPJQ",
+    "ciphertext": "dSWRh9UY6m7pf3ICYAYZnTqAhi5yP1mQZzwYbQ71waGdsJjprG22-USz78t7-tm2GbcHddIjHVhLpCQPF_ii86lXGHf3slN7ZcBJoUJq5uDcIw0Pxu3C-XQ7ZYaC4vbzMDg16ZwuNw2hFwhD130b2O0ankdQSqT-rFsyZtZ_pTbBVwHKMDGOLe6gT3KVjwML32SulsAszlqnSUbw1PmYqxWV2cvhwn-nqxqTWU81ALQOQAvNeVmDp2V6T69Jn4XMeGXPNkBXy0_BLkKq9ElPRPkcih6Y6F7OpggnI3pnneFuUu5-P2gUO9u4yZllpALbm7neWw==",
+    "tag": "QJRkSu30uIl8sM8TamfzXA=="
+  }
+}
+ DEBUG  DEBUG: Response received {
+  "responseMessage": "{\"protected\":\"eyJlbmMiOiJ4Y2hhY2hhMjBwb2x5MTMwNV9pZXRmIiwidHlwIjoiSldNLzEuMCIsImFsZyI6IkF1dGhjcnlwdCIsInJlY2lwaWVudHMiOlt7ImVuY3J5cHRlZF9rZXkiOiJMOU5JbnllenZUVG81bkZiUmp1ZWxNX0M4ckJjazZtdEZ2SUg2NHQ0c2lHdlhxbm1IUno0REtNcm9OeGFvYUFYIiwiaGVhZGVyIjp7ImtpZCI6IkVoOVpBRDlGS2RoU2Q0emRzU2RyQ3dKRHp3RHd4cUtueE5TdzFXM1dvRVN1IiwiaXYiOiI1Vkx1YVFWTXFrT0hzVW9IaHB0UUZhS3dlT3R5TGxBMSIsInNlbmRlciI6IkJ4NHc4VGFYbjBydnAxQnJJbzBsZWExQTJWMGxUcS1RcW9lVElKR0FxSGozc3gtMzJRQ201TlN1RWgzdHYySWFKWW1qLWp0bnZGbjJkbm56NVlkcVFLOVpFTzZXdGJlTF9RajNpdXBwRWM0M05MaF9Lam5PdzNQQVJWaz0ifX1dfQ==\",\"iv\":\"Awaq-HHq-SBvhBLy\",\"ciphertext\":\"mlWeWXNjkiDKwZHLRhOu4ZXggxwfMURf-8taJpeECR1zAk3NThx5Eu8DSOfG2OvEJKWKegnHiEmjA2aIyyvAigZ2pYltHdreRfl9uVwmVHKcuLy4016nl2CmlDj1ljqze985bfM0M2K_oldZGQqgU3zTsK-9bY8C_maVCSrEk_8NNwMZEYA3u1jgZPsDPhyNRxbbIU2bVzm0YpiE_-ZgbrV5kod7maGL70PGUrX5yp1WVup0LGwlViVpDZcfN2RJ2sYPh9u8be440GDLasBvEwdBSdRN1nohO8jV_Td9a8YMf6P9OJqSoDrtDlz029OB14ssrGFjItHVJCPa4oEJtkryrAdCIw==\",\"tag\":\"XxDlDNWIsUwzRjxXLlQ_lw==\"}",
+  "status": 200
+}
+ DEBUG  DEBUG: Agent Aries Bifold received message
+ INFO  INFO: Received message with type 'did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/coordinate-mediation/1.0/keylist-update-response', recipient key z6Mkt9QbkTPgfBBujZqLZ1bh42rDpWVoNia9ePMrqn1XiTEH and sender key z6MkvEGenqXyDNPbosfMJUMm6bLzqTAfo71fNqYKQvNtJDcQ {
+  "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/coordinate-mediation/1.0/keylist-update-response",
+  "@id": "4ca33bf7-ed44-40b4-a4a6-625f13060dc7",
+  "updated": [
+    {
+      "recipient_key": "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323",
+      "action": "add",
+      "result": "success"
+    }
+  ]
+}
+ DEBUG  DEBUG: Create message https://didcomm.org/connections/1.0/request start {
+  "_tags": {
+    "role": "receiver",
+    "recipientKeyFingerprints": [
+      "z6Mksy81KBBTMYAa3NYLE45dTU4rEPStMnFYw4Sb2hrvJ7YD"
+    ],
+    "state": "initial",
+    "invitationId": "c3c7a330-fae2-441c-a037-d24c02c54be4"
+  },
+  "metadata": {},
+  "id": "f67ccccd-282a-4268-bef7-fb8f1a431a17",
+  "createdAt": "2022-10-16T20:15:01.096Z",
+  "outOfBandInvitation": {
+    "@type": "https://didcomm.org/out-of-band/1.1/invitation",
+    "@id": "c3c7a330-fae2-441c-a037-d24c02c54be4",
+    "label": "faber.agent",
+    "accept": [
+      "didcomm/aip1",
+      "didcomm/aip2;env=rfc19"
+    ],
+    "handshake_protocols": [
+      "https://didcomm.org/connections/1.0"
+    ],
+    "services": [
+      {
+        "id": "#inline",
+        "serviceEndpoint": "https",
+        "type": "did-communication",
+        "recipientKeys": [
+          "did:key:z6Mksy81KBBTMYAa3NYLE45dTU4rEPStMnFYw4Sb2hrvJ7YD"
+        ]
+      }
+    ]
+  },
+  "role": "receiver",
+  "state": "prepare-response",
+  "autoAcceptConnection": true,
+  "reusable": false
+}
+ DEBUG  DEBUG: Saving DID record {
+  "id": "did:peer:1zQmdYrWhLMyo5oxsR4iwK3K1FYhFqYB5iSgXYg7fmWV6Dg2",
+  "role": "created",
+  "tags": {
+    "recipientKeyFingerprints": [
+      "z6MkudiBBugCFPE1djp8hZcGMry4P82dFNMeuoVkG7QSiFoR"
+    ],
+    "role": "created",
+    "method": "peer",
+    "legacyUnqualifiedDid": "UrQUpXPWWU6nx9YR89iM3H"
+  },
+  "didDocument": "omitted..."
+}
+ DEBUG  DEBUG: Did record created. {
+  "_tags": {
+    "recipientKeyFingerprints": [
+      "z6MkudiBBugCFPE1djp8hZcGMry4P82dFNMeuoVkG7QSiFoR"
+    ]
+  },
+  "metadata": {
+    "_internal/legacyDid": {
+      "unqualifiedDid": "UrQUpXPWWU6nx9YR89iM3H",
+      "didDocumentString": "{\"@context\":\"https://w3id.org/did/v1\",\"publicKey\":[{\"id\":\"UrQUpXPWWU6nx9YR89iM3H#1\",\"controller\":\"UrQUpXPWWU6nx9YR89iM3H\",\"type\":\"Ed25519VerificationKey2018\",\"publicKeyBase58\":\"GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323\"}],\"service\":[{\"id\":\"UrQUpXPWWU6nx9YR89iM3H#IndyAgentService\",\"serviceEndpoint\":\"https://public.mediator.indiciotech.io\",\"type\":\"IndyAgent\",\"priority\":0,\"recipientKeys\":[\"GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323\"],\"routingKeys\":[\"DGYY31KpABLT4ydNHw11rRneEL8a41X4s6xqre2cAEbn\"]}],\"authentication\":[{\"publicKey\":\"UrQUpXPWWU6nx9YR89iM3H#1\",\"type\":\"Ed25519SignatureAuthentication2018\"}],\"id\":\"UrQUpXPWWU6nx9YR89iM3H\"}"
+    }
+  },
+  "id": "did:peer:1zQmdYrWhLMyo5oxsR4iwK3K1FYhFqYB5iSgXYg7fmWV6Dg2",
+  "role": "created",
+  "didDocument": {
+    "@context": [
+      "https://w3id.org/did/v1"
+    ],
+    "id": "did:peer:1zQmdYrWhLMyo5oxsR4iwK3K1FYhFqYB5iSgXYg7fmWV6Dg2",
+    "verificationMethod": [
+      {
+        "id": "#GBT8bfRk",
+        "type": "Ed25519VerificationKey2018",
+        "controller": "#id",
+        "publicKeyBase58": "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323"
+      }
+    ],
+    "service": [
+      {
+        "id": "#IndyAgentService",
+        "serviceEndpoint": "https://public.mediator.indiciotech.io",
+        "type": "IndyAgent",
+        "priority": 0,
+        "recipientKeys": [
+          "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323"
+        ],
+        "routingKeys": [
+          "DGYY31KpABLT4ydNHw11rRneEL8a41X4s6xqre2cAEbn"
+        ]
+      }
+    ],
+    "authentication": [
+      "#GBT8bfRk"
+    ]
+  },
+  "createdAt": "2022-10-16T20:15:02.711Z"
+}
+ DEBUG  DEBUG: Send outbound message {
+  "message": {
+    "@type": "https://didcomm.org/connections/1.0/request",
+    "@id": "0e5b5c51-3d9f-4750-b6ba-650f8b5b1200",
+    "label": "Aries Bifold",
+    "connection": {
+      "DID": "UrQUpXPWWU6nx9YR89iM3H",
+      "DIDDoc": {
+        "@context": "https://w3id.org/did/v1",
+        "publicKey": [
+          {
+            "id": "UrQUpXPWWU6nx9YR89iM3H#1",
+            "controller": "UrQUpXPWWU6nx9YR89iM3H",
+            "type": "Ed25519VerificationKey2018",
+            "publicKeyBase58": "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323"
+          }
+        ],
+        "service": [
+          {
+            "id": "UrQUpXPWWU6nx9YR89iM3H#IndyAgentService",
+            "serviceEndpoint": "https://public.mediator.indiciotech.io",
+            "type": "IndyAgent",
+            "priority": 0,
+            "recipientKeys": [
+              "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323"
+            ],
+            "routingKeys": [
+              "DGYY31KpABLT4ydNHw11rRneEL8a41X4s6xqre2cAEbn"
+            ]
+          }
+        ],
+        "authentication": [
+          {
+            "publicKey": "UrQUpXPWWU6nx9YR89iM3H#1",
+            "type": "Ed25519SignatureAuthentication2018"
+          }
+        ],
+        "id": "UrQUpXPWWU6nx9YR89iM3H"
+      }
+    }
+  },
+  "connectionId": "3dd9ac4c-d0aa-4c62-b5bd-48af53af5977"
+}
+ DEBUG  DEBUG: Retrieving services for connection '3dd9ac4c-d0aa-4c62-b5bd-48af53af5977' (faber.agent) {
+  "connection": {
+    "_tags": {},
+    "metadata": {},
+    "id": "3dd9ac4c-d0aa-4c62-b5bd-48af53af5977",
+    "createdAt": "2022-10-16T20:15:02.746Z",
+    "did": "did:peer:1zQmdYrWhLMyo5oxsR4iwK3K1FYhFqYB5iSgXYg7fmWV6Dg2",
+    "invitationDid": "did:peer:2.SeyJzIjoiaHR0cHMiLCJ0IjoiZGlkLWNvbW11bmljYXRpb24iLCJwcmlvcml0eSI6MCwicmVjaXBpZW50S2V5cyI6WyJkaWQ6a2V5Ono2TWtzeTgxS0JCVE1ZQWEzTllMRTQ1ZFRVNHJFUFN0TW5GWXc0U2IyaHJ2SjdZRCN6Nk1rc3k4MUtCQlRNWUFhM05ZTEU0NWRUVTRyRVBTdE1uRll3NFNiMmhydko3WUQiXX0",
+    "theirLabel": "faber.agent",
+    "state": "request-sent",
+    "role": "requester",
+    "autoAcceptConnection": true,
+    "threadId": "0e5b5c51-3d9f-4750-b6ba-650f8b5b1200",
+    "protocol": "https://didcomm.org/connections/1.0",
+    "outOfBandId": "f67ccccd-282a-4268-bef7-fb8f1a431a17"
+  }
+}
+ DEBUG  DEBUG: Resolving services from out-of-band record f67ccccd-282a-4268-bef7-fb8f1a431a17.
+ DEBUG  DEBUG: Retrieved 1 services for message to connection '3dd9ac4c-d0aa-4c62-b5bd-48af53af5977'(faber.agent)' {
+  "hasQueueService": false
+}
+ DEBUG  DEBUG: resolving didUrl did:peer:1zQmdYrWhLMyo5oxsR4iwK3K1FYhFqYB5iSgXYg7fmWV6Dg2
+ DEBUG  DEBUG: Sending outbound message to service: {
+  "messageId": "0e5b5c51-3d9f-4750-b6ba-650f8b5b1200",
+  "service": {
+    "id": "#inline",
+    "recipientKeys": "omitted...",
+    "routingKeys": "omitted...",
+    "serviceEndpoint": "https"
+  }
+}
+ DEBUG  DEBUG: Pack outbound message https://didcomm.org/connections/1.0/request
+ DEBUG  DEBUG: Sending outbound message to endpoint 'https' {
+  "payload": {
+    "protected": "eyJlbmMiOiJ4Y2hhY2hhMjBwb2x5MTMwNV9pZXRmIiwidHlwIjoiSldNLzEuMCIsImFsZyI6IkF1dGhjcnlwdCIsInJlY2lwaWVudHMiOlt7ImVuY3J5cHRlZF9rZXkiOiJHVEEzZ0txWER1QTl2WEVwcUpQbF93dW0wT2ptSjE1TkxnRVdpRURtbVdYWEtLRDRUNk1kWW5ZTVhvZDZqWmVzIiwiaGVhZGVyIjp7ImtpZCI6IkVXcnhpdncyMXpnNnZzaGRZVjduY05XclFwQjJ3dTFDRjNYZkNSdHVOdGtxIiwiaXYiOiJnZTN3NFlzTnZ2VmpqNzZhazNLcVlKd2U5aGJGNnpERSIsInNlbmRlciI6IklNd3pQYm9lUWlHcXQ4Y3lpM1F5VUE0VFAzOWRXQlpjd1B3NFI0N2dXVGgtVmJ0bGZrV3FTVl80bTFINlVkeGR0c1JjcjJ1SDU5bVNzOGViMWhSekttM2hfSXBLanNBMVJiYXVsazd2anY3VjJtb1BNZFdybHV1VmlHOD0ifX1dfQ==",
+    "iv": "IOn2P3lrOPnZJiiE",
+    "ciphertext": "HRLGPfZKqTTFxx5VEC2B1oGmnzYcHZ3Y4yiyuZSbRJ79hFxB16D5pUWCR8yawXCNJOn2PPRrGTidNS0CV4zfXBNnrxAPpCPUp6WQPTSasWV6azvmGieLgDKOQc7-u_rxtYIWdziZykLYyirvRHvf9AM8lmEtlSBjjj9wPSPiAdYEQJ3DZAty7zopVMLutW3aARUMX8ikGtzK1q8tGsKJro4D7-wlI_DmoBLqDstN9RaUN-hsunSwMsRlcO5lJaihkUeP-u-YtC_MtcnYBzz0s1F_zwsAl883Wn_2V5s6bkzglV_1zZrQL1zkQWGwLeVatd9T6AXZldtpEg35eFJbZe8aCHuituRikraM-40wyR2i4I-39c3qOyt5lEUJ_aGhm5OxuMBlQWv8oTb1tr73ggriaxElFoFANUrHT-SqL7n2i1jG2Q6DcfdH2HUeTEFX7yUTvTcqIpxtzVEdwTeUBKFIXtYD1LPD0XqdW_Rrmb4iY2B7gYcNJTyUIGrjekDQInr13udCvVvqWwLUffIPAOdF5qu_IFBVE1gOHADAcIZGIoeaQWN7Yuw-WHemSCSSQ-yuadEUlhLMIxUS7xQgeax7VnZewlRlrYt9GDVLaAsSklgM95EMZpFKi2hIextOB5Wiruy1pEbUjclCNQ_bdhM8QV70lU-UPgo9i0RgvGlEcDCqzPSSP6imS8dBZzf8tbPIfxRV-kz4ZfSqzsRnEh6KFnNPLiSgV_g_ER9YrpqVZMLcyulP4ikPwfIc0roD401Mlz72kGeg8ql49Pqq9w_ofSlsG0O-Rhyk9AwjXEcvECZVDX8QpRzupgD43WaDmB-F6Av8QkrQ76OHrDbKLQ52ZHkXZD1cTlu7EjlP7gL2fZ91vHDrfj7vDJghKbkACEG4vjT-euc9psK2CN2thrBlmAT9TXw4bIKfdnuA_UqWQyI7IS3FgjbOEqigoAENn4IE7u4Q74xJFYxPxb_-SRWEjRNd23KTr1OFB0CIG6wXd4utVmZ1-WKcZbSbUlptT_e-wz7-9PgYyszcsmdKdBYvvGpMoXdICJkRiwcC0D3VWXtQezkkmzEFOkryCJfFtuc=",
+    "tag": "NAXHrDSSo55sa1owHSzPXA=="
+  }
+}
+ ERROR  ERROR: Error sending message to https: Network request failed {
+  "error": {
+    "name": "TypeError",
+    "stack": "TypeError: Network request failed\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:25957:33)\n    at apply (native)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30172:26)\n    at _callTimer (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30092:17)\n    at callTimers (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30293:19)\n    at apply (native)\n    at __callFunction (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5987:36)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5711:31)\n    at __guard (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5938:15)\n    at callFunctionReturnFlushedQueue (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5710:21)",
+    "message": "Network request failed"
+  },
+  "message": "Network request failed",
+  "body": {
+    "protected": "eyJlbmMiOiJ4Y2hhY2hhMjBwb2x5MTMwNV9pZXRmIiwidHlwIjoiSldNLzEuMCIsImFsZyI6IkF1dGhjcnlwdCIsInJlY2lwaWVudHMiOlt7ImVuY3J5cHRlZF9rZXkiOiJHVEEzZ0txWER1QTl2WEVwcUpQbF93dW0wT2ptSjE1TkxnRVdpRURtbVdYWEtLRDRUNk1kWW5ZTVhvZDZqWmVzIiwiaGVhZGVyIjp7ImtpZCI6IkVXcnhpdncyMXpnNnZzaGRZVjduY05XclFwQjJ3dTFDRjNYZkNSdHVOdGtxIiwiaXYiOiJnZTN3NFlzTnZ2VmpqNzZhazNLcVlKd2U5aGJGNnpERSIsInNlbmRlciI6IklNd3pQYm9lUWlHcXQ4Y3lpM1F5VUE0VFAzOWRXQlpjd1B3NFI0N2dXVGgtVmJ0bGZrV3FTVl80bTFINlVkeGR0c1JjcjJ1SDU5bVNzOGViMWhSekttM2hfSXBLanNBMVJiYXVsazd2anY3VjJtb1BNZFdybHV1VmlHOD0ifX1dfQ==",
+    "iv": "IOn2P3lrOPnZJiiE",
+    "ciphertext": "HRLGPfZKqTTFxx5VEC2B1oGmnzYcHZ3Y4yiyuZSbRJ79hFxB16D5pUWCR8yawXCNJOn2PPRrGTidNS0CV4zfXBNnrxAPpCPUp6WQPTSasWV6azvmGieLgDKOQc7-u_rxtYIWdziZykLYyirvRHvf9AM8lmEtlSBjjj9wPSPiAdYEQJ3DZAty7zopVMLutW3aARUMX8ikGtzK1q8tGsKJro4D7-wlI_DmoBLqDstN9RaUN-hsunSwMsRlcO5lJaihkUeP-u-YtC_MtcnYBzz0s1F_zwsAl883Wn_2V5s6bkzglV_1zZrQL1zkQWGwLeVatd9T6AXZldtpEg35eFJbZe8aCHuituRikraM-40wyR2i4I-39c3qOyt5lEUJ_aGhm5OxuMBlQWv8oTb1tr73ggriaxElFoFANUrHT-SqL7n2i1jG2Q6DcfdH2HUeTEFX7yUTvTcqIpxtzVEdwTeUBKFIXtYD1LPD0XqdW_Rrmb4iY2B7gYcNJTyUIGrjekDQInr13udCvVvqWwLUffIPAOdF5qu_IFBVE1gOHADAcIZGIoeaQWN7Yuw-WHemSCSSQ-yuadEUlhLMIxUS7xQgeax7VnZewlRlrYt9GDVLaAsSklgM95EMZpFKi2hIextOB5Wiruy1pEbUjclCNQ_bdhM8QV70lU-UPgo9i0RgvGlEcDCqzPSSP6imS8dBZzf8tbPIfxRV-kz4ZfSqzsRnEh6KFnNPLiSgV_g_ER9YrpqVZMLcyulP4ikPwfIc0roD401Mlz72kGeg8ql49Pqq9w_ofSlsG0O-Rhyk9AwjXEcvECZVDX8QpRzupgD43WaDmB-F6Av8QkrQ76OHrDbKLQ52ZHkXZD1cTlu7EjlP7gL2fZ91vHDrfj7vDJghKbkACEG4vjT-euc9psK2CN2thrBlmAT9TXw4bIKfdnuA_UqWQyI7IS3FgjbOEqigoAENn4IE7u4Q74xJFYxPxb_-SRWEjRNd23KTr1OFB0CIG6wXd4utVmZ1-WKcZbSbUlptT_e-wz7-9PgYyszcsmdKdBYvvGpMoXdICJkRiwcC0D3VWXtQezkkmzEFOkryCJfFtuc=",
+    "tag": "NAXHrDSSo55sa1owHSzPXA=="
+  },
+  "didCommMimeType": "application/ssi-agent-wire"
+}
+ DEBUG  DEBUG: Sending outbound message to service with id #inline failed with the following error: {
+  "message": "Error sending message to https: Network request failed",
+  "error": {
+    "name": "AriesFrameworkError",
+    "message": "Error sending message to https: Network request failed",
+    "stack": "Error\n    at captureStackTrace (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:149483:32)\n    at BaseError (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:149525:22)\n    at construct (native)\n    at _createSuperInternal (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:149402:406)\n    at call (native)\n    at BaseError (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:149433:26)\n    at construct (native)\n    at _createSuperInternal (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:149371:406)\n    at call (native)\n    at AriesFrameworkError (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:149391:25)\n    at sendMessage$ (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:207762:111)\n    at call (native)\n    at tryCatch (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:24827:23)\n    at invoke (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:24997:32)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:24869:30)\n    at call (native)\n    at tryCatch (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:24827:23)\n    at invoke (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:24899:30)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:24911:21)\n    at tryCallOne (/tmp/hermes/staging/hermes/cmake/intlDebug/arm64-v8a/lib/InternalBytecode/InternalBytecode.js:53:16)\n    at anonymous (/tmp/hermes/staging/hermes/cmake/intlDebug/arm64-v8a/lib/InternalBytecode/InternalBytecode.js:139:27)\n    at apply (native)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30196:26)\n    at _callTimer (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30092:17)\n    at _callReactNativeMicrotasksPass (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30131:17)\n    at callReactNativeMicrotasks (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30341:44)\n    at __callReactNativeMicrotasks (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5955:46)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5733:45)\n    at __guard (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5938:15)\n    at flushedQueue (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5732:21)\n    at callFunctionReturnFlushedQueue (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5714:33)",
+    "cause": {
+      "name": "TypeError",
+      "stack": "TypeError: Network request failed\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:25957:33)\n    at apply (native)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30172:26)\n    at _callTimer (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30092:17)\n    at callTimers (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30293:19)\n    at apply (native)\n    at __callFunction (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5987:36)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5711:31)\n    at __guard (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5938:15)\n    at callFunctionReturnFlushedQueue (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5710:21)",
+      "message": "Network request failed"
+    }
+  }
+}
+ ERROR  ERROR: Message is undeliverable to connection 3dd9ac4c-d0aa-4c62-b5bd-48af53af5977 (faber.agent) {
+  "message": {
+    "@type": "https://didcomm.org/connections/1.0/request",
+    "@id": "0e5b5c51-3d9f-4750-b6ba-650f8b5b1200",
+    "label": "Aries Bifold",
+    "connection": {
+      "DID": "UrQUpXPWWU6nx9YR89iM3H",
+      "DIDDoc": {
+        "@context": "https://w3id.org/did/v1",
+        "publicKey": [
+          {
+            "id": "UrQUpXPWWU6nx9YR89iM3H#1",
+            "controller": "UrQUpXPWWU6nx9YR89iM3H",
+            "type": "Ed25519VerificationKey2018",
+            "publicKeyBase58": "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323"
+          }
+        ],
+        "service": [
+          {
+            "id": "UrQUpXPWWU6nx9YR89iM3H#IndyAgentService",
+            "serviceEndpoint": "https://public.mediator.indiciotech.io",
+            "type": "IndyAgent",
+            "priority": 0,
+            "recipientKeys": [
+              "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323"
+            ],
+            "routingKeys": [
+              "DGYY31KpABLT4ydNHw11rRneEL8a41X4s6xqre2cAEbn"
+            ]
+          }
+        ],
+        "authentication": [
+          {
+            "publicKey": "UrQUpXPWWU6nx9YR89iM3H#1",
+            "type": "Ed25519SignatureAuthentication2018"
+          }
+        ],
+        "id": "UrQUpXPWWU6nx9YR89iM3H"
+      }
+    }
+  },
+  "errors": [
+    {
+      "name": "AriesFrameworkError",
+      "message": "Error sending message to https: Network request failed",
+      "stack": "Error\n    at captureStackTrace (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:149483:32)\n    at BaseError (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:149525:22)\n    at construct (native)\n    at _createSuperInternal (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:149402:406)\n    at call (native)\n    at BaseError (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:149433:26)\n    at construct (native)\n    at _createSuperInternal (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:149371:406)\n    at call (native)\n    at AriesFrameworkError (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:149391:25)\n    at sendMessage$ (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:207762:111)\n    at call (native)\n    at tryCatch (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:24827:23)\n    at invoke (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:24997:32)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:24869:30)\n    at call (native)\n    at tryCatch (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:24827:23)\n    at invoke (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:24899:30)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:24911:21)\n    at tryCallOne (/tmp/hermes/staging/hermes/cmake/intlDebug/arm64-v8a/lib/InternalBytecode/InternalBytecode.js:53:16)\n    at anonymous (/tmp/hermes/staging/hermes/cmake/intlDebug/arm64-v8a/lib/InternalBytecode/InternalBytecode.js:139:27)\n    at apply (native)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30196:26)\n    at _callTimer (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30092:17)\n    at _callReactNativeMicrotasksPass (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30131:17)\n    at callReactNativeMicrotasks (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30341:44)\n    at __callReactNativeMicrotasks (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5955:46)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5733:45)\n    at __guard (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5938:15)\n    at flushedQueue (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5732:21)\n    at callFunctionReturnFlushedQueue (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5714:33)",
+      "cause": {
+        "name": "TypeError",
+        "stack": "TypeError: Network request failed\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:25957:33)\n    at apply (native)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30172:26)\n    at _callTimer (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30092:17)\n    at callTimers (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:30293:19)\n    at apply (native)\n    at __callFunction (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5987:36)\n    at anonymous (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5711:31)\n    at __guard (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5938:15)\n    at callFunctionReturnFlushedQueue (http://localhost:8081/index.bundle?platform=android&dev=true&minify=false&app=com.ariesbifold&modulesOnly=false&runModule=true:5710:21)",
+        "message": "Network request failed"
+      }
+    }
+  ],
+  "connection": {
+    "_tags": {},
+    "metadata": {},
+    "id": "3dd9ac4c-d0aa-4c62-b5bd-48af53af5977",
+    "createdAt": "2022-10-16T20:15:02.746Z",
+    "did": "did:peer:1zQmdYrWhLMyo5oxsR4iwK3K1FYhFqYB5iSgXYg7fmWV6Dg2",
+    "invitationDid": "did:peer:2.SeyJzIjoiaHR0cHMiLCJ0IjoiZGlkLWNvbW11bmljYXRpb24iLCJwcmlvcml0eSI6MCwicmVjaXBpZW50S2V5cyI6WyJkaWQ6a2V5Ono2TWtzeTgxS0JCVE1ZQWEzTllMRTQ1ZFRVNHJFUFN0TW5GWXc0U2IyaHJ2SjdZRCN6Nk1rc3k4MUtCQlRNWUFhM05ZTEU0NWRUVTRyRVBTdE1uRll3NFNiMmhydko3WUQiXX0",
+    "theirLabel": "faber.agent",
+    "state": "request-sent",
+    "role": "requester",
+    "autoAcceptConnection": true,
+    "threadId": "0e5b5c51-3d9f-4750-b6ba-650f8b5b1200",
+    "protocol": "https://didcomm.org/connections/1.0",
+    "outOfBandId": "f67ccccd-282a-4268-bef7-fb8f1a431a17"
+  }
+}
+
+
+
