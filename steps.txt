@@ -1,2 +1,5 @@
-To start this project,
-First you have to two terminal command "npm start" one is inside "../aries$" and the other is inside "../aries/Client/my-app$"
+To starting this project,
+First you need to make two terminal command "npm start", one is inside "../aries$" and the other is inside "../aries/Client/my-app$".
+
+To getting response from "localhost:8021" you also need to run Swagger UI in the browser. For running Swagger UI goto aries-cloudagent python, doing changes suggested in "setup-aries-cloudagent-python-for-Swagger.txt"(You will find it on Resouse). After doing all this changes, go to "../aries-cloudagent-python/demo$" and run "LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber" in the terminal, An API(Swagger UI) will open up at port 8021. (Run docker if necessary.)
+

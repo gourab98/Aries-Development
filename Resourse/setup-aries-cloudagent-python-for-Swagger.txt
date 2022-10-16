@@ -1,0 +1,20 @@
+First Developtment:
+
+In the first stage of this development, we will recreate the Faber funcitonalities with a NodeJSApp and will use our React Native Wallet to interact with it.
+
+Go to this location: http://dev.greenlight.bcovrin.vonx.io
+	1. Create a new DID by providing a secret 32 characters seed value and keeping the role as endorser. 
+	2. Store the generated DID and verkey along with the seed in a safe place.
+	
+Next, prepare your aca-py codebase using the following steps:
+	1. Search for if self.seed in the agent.py of the aca-py codebase and change the seed to your previously used seed, something like this:
+		if self.seed
+            		result.append(("--seed", "your seed))
+	2. Change in the --seed value in the PYTHONPATH= part in the faber-local.sh file with the value of the previous seed.
+	3. Use this command to get publicly open URL for the 8020 port: ngrok http 8020. You will need install ngrok if it is not installed.
+	4. Copy the ngrok url and change the --endpoint value with the copied ngrok url in the faber-local.sh file.
+	5. Change this --genesis-url value to this: http://dev.greenlight.bcovrin.vonx.io/genesis in the faber-local.sh file.
+	6. If there is a --wekhook value, comment it out for the time being.
+	7. Search for result = [ in the agent.py and change the --endpoint value to your copied ngrok value. 
+
+Now, if you start the service LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber, an API will open up at port 8021.

@@ -1,0 +1,255 @@
+Download the attached Zip file from the email and extract it somhewhere.
+
+============================
+Initial Trial
+
+At first start with the Demo from this location: https://github.com/hyperledger/aries-cloudagent-python/tree/main/demo
+
+
+Try with the Running with Docker Section using Play with Docker to start the services and follow the instructions of Follow the Script section
+
+===========================
+Once you get the hang of it, the next step is to migrate this demo to your laptop. For this follow these steps:
+
+	1. Close the repo: git clone https://github.com/hyperledger/aries-cloudagent-python
+	2. Prepare your laptop by installing the requirements: pip3 install -r demo/requirements.txt
+	3. In the fisr console: cd aries-cloudagent-python/demo
+	4. While in the demo directory: LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber
+	5. Open another console in the demo directory and issue this command: LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo alice
+	6. Follow the instructions given in the Follow the Script Section.
+	
+Everything works, then your laptop is ready for the development.
+
+============================
+
+Using Aries Mobile Agent React Native wallet with the Faber Demo.
+
+The idea of this step is that you get yourself familiar with the Aries Mobile Agent React Native wallet and how to use it with the SSI ecosytem. At first download the codebase from this location: https://github.com/hyperledger/aries-mobile-agent-react-native and open with VSCode or with any of your favourtie Editor.
+
+Then, install the wallet in your Android/iOS device following the suggestion.
+
+Within the extracted Zip file, there is a directory called: Aries Mobile Agent Config. Within this directory, there are two things: a directory named bcovrin-test-net and a file called index.js. Copy the bcovrin-test-net directory to the the configs/ledgers/indy directory of the Aries Mobile Agent React Native codebase. Also, copy index.js file to replace the index.js file within the configs directory of the Aries Mobile Agent React Native codebase.
+
+Then, start the Faber agent following the steps given above and in the console, you will find that there is a QR code. Use the Mobile Wallet on Android to scan the QR code and interact with the Faber console similar way of the previous step. This step will show you how to use Aries Wallet with the System
+
+============================
+
+First Developtment:
+
+In the first stage of this development, we will recreate the Faber funcitonalities with a NodeJSApp and will use our React Native Wallet to interact with it.
+
+Go to this location: http://dev.greenlight.bcovrin.vonx.io
+	1. Create a new DID by providing a secret 32 characters seed value and keeping the role as endorser. 
+	2. Store the generated DID and verkey along with the seed in a safe place.
+	
+Next, prepare your aca-py codebase using the following steps:
+	1. Search for if self.seed in the agent.py of the aca-py codebase and change the seed to your previously used seed, something like this:
+		if self.seed
+            		result.append(("--seed", "your seed))
+	2. Change in the --seed value in the PYTHONPATH= part in the faber-local.sh file with the value of the previous seed.
+	3. Use this command to get publicly open URL for the 8020 port: ngrok http 8020. You will need install ngrok if it is not installed.
+	4. Copy the ngrok url and change the --endpoint value with the copied ngrok url in the faber-local.sh file.
+	5. Change this --genesis-url value to this: http://dev.greenlight.bcovrin.vonx.io/genesis in the faber-local.sh file.
+	6. If there is a --wekhook value, comment it out for the time being.
+	7. Search for result = [ in the agent.py and change the --endpoint value to your copied ngrok value. 
+
+Now, if you start the service LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber, an API will open up at port 8021. You will need to develop the NdoeJSAPP to interact with this API. Remember, what you are trying to simulate the functionalities of Faver using zour NodeJS App. So, on your home page, there will be three options: Create invitation, Release Credential and Send Proof Request.
+
+You will find AgentService.js within the extracted attachment which you can use to create the invitation. It also has credentials and proof request funcitonalities which I could not make it work. If you make them work, your work is almost done. Otherwise you will need to write code for these functionalities:
+
+The pseudocode for credential generation....
+
+app.get('/credential', async function(req,res) {
+	axios.get('http://127.0.0.1:8021/credential-definitions/created')//use this get the credential ID
+		.then((resp) => {
+			const credID = resp.data['credential_definition_ids'][0];
+
+			if(credID){
+				req.session.credID = credID
+				const data = {
+					"auto_issue": true,
+					"auto_remove": true,
+					"connection_id":req.session.conID, // you store the session when you create an invitation via the AgentService API.
+					"cred_def_id":credID,
+					"comment":"Offer on cred def id " + credID,
+					"credential_preview":{
+						"@type":"https://didcomm.org/issue-credential/1.0/credential-preview",
+						"attributes":[
+							{
+								"name":"name",
+								"value":"Will Smith"
+							},
+							{
+								"name":"email",
+								"value":"sfr@er.et"
+							},
+							{
+								"name":"address",
+								"value":"Ringstraße 43, 53225 Bonn, Germany"
+							},
+							{
+								"name":"birthdate_dateint",
+								"value":"19980204"
+							},
+							{
+								"name":"role",
+								"value":"faculty"
+							},
+							{
+								"name":"timestamp",
+								"value": ""+Date.now()
+							}
+						]
+					}
+				};
+				
+				axios.post('http://127.0.0.1:8021/issue-credential/send-offer', data)
+				// DO what you need to do after sending the credential...may be showing a message to the website!	
+			}
+		}).catch((err) => {
+			console.error(err);
+		});
+});
+
+
+The pseudocode for proof request....
+
+app.get('/proofReq', async function(req,res) {
+	console.log("At Proof Request!")
+	var role = ""
+	if(req.session.reqPage === "Page1"){
+		role = "student"
+	}
+	else if(req.session.reqPage === "Page2"){
+		role = "faculty"
+	}
+	axios.get('http://127.0.0.1:8021/credential-definitions/created')
+		.then((resp) => {
+
+			const credID = resp.data['credential_definition_ids'][0];
+			if(req.cookies.conID){ // Retrieve the Connection ID from thei cookie. Remember, without connection ID you can't do anything...
+				console.log("Connection ID:", req.cookies.conID) 
+				req.cookies.conID
+				const data = {
+					"connection_id": req.cookies.conID,
+					"proof_request": {
+						"name": "Proof of Role",
+						"version": "1.0",
+						"requested_attributes": {
+							"0_role": {
+								"name": "role",
+								"value": role,
+								"restrictions": [
+									{
+										"schema_name": "web schema"
+									}
+								]
+							}
+						},
+						"requested_predicates": {
+						}
+					}
+				};
+
+				
+				axios.post('http://127.0.0.1:8021/present-proof/send-request', data)
+					.then((resp) => {
+						console.log("Before creating dummy proof page...")
+						res.render("dummyProof");
+					}).catch((err) => {
+						// console.error(err);
+						console.log("Error at issuing credentials!")
+					});
+			}
+		}).catch((err) => {
+			console.error(err);
+		});
+});
+
+
+The webhooks is really important, your aca-py can communicate with your NodeJS via the webhooks. This is a pseudocode for webhooks:
+
+app.post("/webhooks/*", (req, res) => {
+	res.writeHead(200, {'Content-Type': 'text/plain'});
+  	res.end('Hello World\n');
+	const conID = req.body['connection_id'] //Whever webhooks is activated from aca-py, a connection ID is passed and you can retrieve it like this....
+	const conStatus = req.body['rfc23_state'] // Different methods have different status. You retrieve the status and then check what functionaliy was completed....
+	if(conID){
+		if(conStatus === "completed"){
+			console.log("Invitation Completed with conID:" + conID)
+			.....
+		}
+		if(req.body['state'] === 'credential_acked'){
+			console.log("Credential acked...")
+			....
+		}
+		if(req.body['verified'] === 'true'){
+			console.log("Credential verified after proof request..:")
+			
+			// You can now retrieve the attributes from the proof request via this way.....
+			var base64data = JSON.stringify(req.body['presentation_request_dict']['request_presentations~attach'][0]['data']['base64'])
+			const decodedString = Buffer.from(base64data, "base64");
+			const jsonData = JSON.parse(decodedString.toString());
+			proofStatus = true
+			retrievedAttribute = jsonData['requested_attributes']['0_role']['value']
+			....now decide what you need to do, for example store in a database...
+		}
+	}
+    //res.render("index");
+});
+
+If you would like to use webhooks, you will need to add the webhook parameters (--webhook-url) in the faber-local.sh and agent.py files. However, to do this you will need ngrok the port of your NodeJS App and add the ngrok URL to these files. By default ngrok can use only one port, by Google to find out how to do this for multiple ports.
+
+
+Seed: V6IbU3kqz5w14zWntXKcOKdQDxnsXHtV
+DID: 6EfteLyPuyT6Z7ahwzLpei
+Verkey: 3rWdBtWCh4oakg5qPDcErpUwx93PMYkKNPMMhvYuAHqA
+
+
+
+█▀▀▀▀▀▀▀██▀██▀▀██▀▀▀▀▀▀█▀▀▀████▀▀██▀██▀█▀▀▀▀██▀███▀█▀▀█▀█▀▀█▀████▀██▀█▀▀▀██▀▀██▀▀▀█▀▀▀▀▀▀▀█
+█ █▀▀▀█ █▀▄█▀█ ██▄ ▄▀█▄▄█  ▀▄▀█  ▄ ▀ █▄▄▄▀▀▀ ██▄▀▄▄▀▄▄███▄█  ▄▄▀  ▄█▀▀█▄▄█ ▄ ▀▄█▄██ █▀▀▀█ █
+█ █   █ █ ▄█  ▀█▄██ ▀▄▀▄▀ █▄█ ▀   ▄█▄ ▄█▄█▀▀▄▀█▄█▄ █▀▀▀▀ ▀ ▀▀█▄▀ ▄█ ▀▄ ▀▀▀▄▄▄██▄▀▄█ █   █ █
+█ ▀▀▀▀▀ █ █▀▄▀█ ▄ ▄▀▄▀▄ █▀▄▀█ █▀█ █ █▀▄ █▀▄ █ ▄▀█ █ █ ▄ █▀█ ▄ ▄ █ ▄▀█ █ █▀█ █ ▄▀▄▀█ ▀▀▀▀▀ █
+█▀█▀▀▀▀▀█▄ ▀   ▄▀█▀█ ██▄▀▀██▀ ▀▀▀  ▀▀▀ ██▄█▄▀█ █▀   █▄  ▀▀▀ ▄█▄█ ▄▄ █▄███▀█▄▀▄▄  ▄█▀▀▀▀▀███
+█ ▀   ▀▀  ▀█▄█▀▄▀█▄▄▀▀█▄▀▄▄▄ █▄█▀▄▄█ ▀ ▀  ▄▄▄▀█▀▀▀▄▀▄▀▀▄█ ▄▀█▀█▀█▀▀█▄▄ ▀▄██ ▄▄▀▀▀███ ▀▀█▄██
+█▄▀██ ▄▀████ ▄▄▄▀ ▄▀ ██▄  ▄▀█▀  █▀█▀▄▀▀█▄▄█  █▄▀▀ █ ██▀ ▄▄ ▀██ ▄ ▄▄█▄ ▄▄█▀█   ▀██ █▀▄  ▀▀▀█
+█▀▄█▀█ ▀▄▄  █▄▄▀█  ▀█ ▄  █████▀▀▄▄██ ▀▄▀█▄  █▄▀██▀▀▀▀▀█▄▄▄▄▀▄▀▀▀  ▀█▄ ▄ █ █▀▀█▀▀█ ▄█▄▄▄████
+█▄▄▀█  ▀▀█▄▀▄▄█ ▀ ▄▄█▀▄ ▄█ ▀▀▀▀▀▄ █ ▄ ▀▄██▄█ ▄ ▀▀ █ ██▄▄▄█ ██▀▀█▀▄ ▄█▄█▀██▀ ▀▄ █▄▀ █   █▀██
+██   ▄█▀▀   ▀█▄ ▀ █▄ █▀ ▀▀▀ █▀██ ██▀▄ ▀▀█   █▄▀▀▄▄▀▀ ▄███▄ ▀▄ █ ██▀█▀█▄▀▄▄█▀▄▀▀▄▀▄██▀ ▄████
+██▀▀ ▀▄▀▄█▄▀ ▀▄  ▀██  ██▀█▀ ▀ █▄▀██ ▄▀▄██▄█ ▀█▄ ▀▀ ▀▄█▄▀█ ▄ ████ ▄█ ▄▄▀██▀▄█ ▄▄ █▀▄▄ ▄▄█▄██
+█ ▀█▄▀▀▀▄██▄▀▀ █▄██▄▀ ▀█▄▀▀██▀▄▄▀▀▀▄▄▄▄▀▄█▄▄▀ ▀█  ▀▀▀▀█▄█ ▄█▀ ▀▀▀▄█▄▄  ▀▄▄█▀▀███▀▄▀▄ ▄  ▄▄█
+█▀▄▄▀ ▀▀█▀ █▄▄▀  ▀▀▄ ▄▀▀  ▀█▀▀ ▄  █▄ ▀▀██▄ ▄▀▄▀▀▄▀▀▄▀▄▀▄██  ▄▀ █▀█▄▀█ ▀ ▄▀▀▄  ▀▄█▀▀▄▄ ▄█  █
+█ █▀▄██▀  █▀ ███▄▀█ ▄▄▀▄▀█ ▄▄▀▀▄▀▀▄█▄▄ █ ▄▄   ▀▀▄▄▄▀▀ ███  ▀▀▀█ ▀█▀▄▄█  █ ▀  ▀▀█▀▀██▄▄▀▄███
+█▄ ▀   ▀▀▀▄█    ▀ ██▄▄ ▀▄█▀█   ▀  ▀▀ ▀██▄▄ █ ▄ ▀   █▄█    ▀▀██  ▀▄▀▄▄ ████▀  ▄▄▄ ▀▀▀  ▄▀▄▄█
+██▄▀█ █▀█ ▀▄ ▄ █▄▄▀▄█▄▀█ ▄▀ █ █▀█ ██ ▀▄▀  ▄▄▀███▀  ███▄ █▀█ ▀ ▀▀▄ ▀██  ▀█▀█ ▄███▄ █▀█ █ ▄██
+█▀  ▄ ▀▀▀ ▄█▀█▄ ▀██▄█ ▀ ██ ▄▀ ▀▀▀  ▀ ▀████▄▀▄▄▄█▀▀█ ██▀ ▀▀▀ ██▄▀▀▀█ ▄▀▄ █▀▀█ ▄▀▀▄ ▀▀▀ ▄█▄██
+█▄█▀▄▀▄▀  ██ ▀█ ██▀█ ▀ ▄ ▀ ██▄▀█  ▄█▀▄▀▀▄ ▀▄█▀██▀▄ ▀ ▄▀█▀▀▀  ▀▀█▄▀███▄▄▀█▀▀▄  ███▀▀▀▀▄ ▄ ▄█
+█▄▀▄██▄▀▄█▄▄  ▄▀█▄  ▄ ███▀ ▄▀▀▀ █▄█ ▀▀█▄▄██ ▀▄▀▄▀▀ ▀▀▄▀▀▀██▄███▄▀▄▄ █ ▄ ▄     ▀█ ▀▀█▀▀▄▀ ▄█
+███▄ ▀▄▀▄█▀▀▄▀▀▄▄█    ▄▀    ▄▀▄▄ ▄▄▀▀▀▄█▀▄  ▀▄▀▀▄ ▀▀▄▀ ▀█▀▀▀▄█▀▀▀ ▀█▀█  █▀▀   ██▀▀▄▄█▄█▄███
+█▀█▄█▄▄▀▄▀▄▄  █▄▀▄▀ ▀█▄▄  ▀▄▀ ▀ ▀█▄█▀▀█▀▀▄▄▄▄▄▄▄▀ █ ██▄▀█▄▄▄▄▀██▀ ▀ ▄▄█▄▄▀ ▄▀█ ▀ █▀█ ▀▄▀▄▄█
+█▀▀▀▄█▄▀▄   ▀█ █▄ ▄▄▀▀▄▄ ▄▀▀ ▄ ▀▄█▄█▀█▀▀▀▀▄▄ █▀▀██▄███ ██▀ ▀▄▄▀ ▄▀▀██  ▀▄█▀▀▄█▀▄█  ▄▄ █ ▄██
+██▀▄▀▄ ▀▄▄██▄█ ▀▄▀▄█▄▄██▀ ▀▀ █ ▀█▀▀▄▄▀ █▄▄▀▄▀▄█▄▄▀▄█▄█ ▀▀█▀▀▄▀▄▄    █▄▀▄█▀ █▀▄   █▀▀▄▀▄▀█▄█
+█▄█ █▀▄▀▀▀██▄▀█   █ █▄▀▄▄ ▀▄▄▀▀▀ ▄▀▄█▀ ██▀▄ ▀▄██▄▀ █▀▀▄ ▀▀▀  ▀█▀▄▀█▄ ▀ ▀▄ █▀██▀ █▄▄ ▄▄█ ▄██
+█▄ ▄▄ ▀▀▀ █▀▄██  ▄▀▀▀█  ███▄ ▄██▄ ▀  ▀██▀▄▀▀▀█ █▀▀█ ██▀▀█▄▄▄▄▀ █▀▀  ▄ ▄ ██ ▀▀ ▀▀▄███▀▀ █▄▄█
+█▄▀▄███▀▄▀▄█▄ █  ▀█ ▄▀ ▄█ ▄█ ▄▄▀▀██   ▄█▄▀   █▄▀ ▀ ▀ ▀▀█ ▄ ▀▀ █▀ ▀▀█▀█▄▀▄▀▀▀▄█▀▄ ▄▀█▀▄▀█▄▄█
+█▀▄▄▀▄ ▀▀ ▄ ██▄ █▄   ▄▀▄▄▀▄ ██ ▄▀▄ ▄▀ █ ▄█▄▀ ▄▄▀▀▀█▄██▀▀▀██▄█▀█▀ ▄  ▄ ▀███▄█  ▄▀ ██▀▀ ▀▀███
+█ █▀   ▀  ▄▄ ▄▄▀█ █▀▀ █ ▄ ▄▀   ▀▀ ▄ ▄█▄█ ▀▄▄ ▀▀█  ▄█ ▄▄▀▀▀▀▀▄ ▀ ▀█▀▄▄▄▄▄▄█▀ ▀█▀██      ▀▄██
+█▀ █▄ █▀█ ▄ ▄▀█▀▀▄▄    █  ▄▀█ █▀█ ▀▄▀ ▀▄▀▄▀▀▀▄▄▄▄▀ ▄▄▄  █▀█ ▄▀█▀▀ ▀ ▄ ▀ ▄ ▀█▀▄ █▀ █▀█ ▀▀▄██
+██▄█▀ ▀▀▀ ▄▀▄▀ ▄███▄▀██▀ ███▀ ▀▀▀ █ ▄▄███▄ ▄▀▀▀▀█  █▀▄█ ▀▀▀  ▄▀█ ▀▀▄  ▄ ▄▄▀█▀▄▀▀▀ ▀▀▀ ▄▄▀▄█
+██▄▄ ██▀ ▀█▀█ ▄▀▀  █▀ ▄▀██▄▀█   █▀▀ ▄▀▀▄▄█ ▀▀█ ▄ ▀▀▄▄▄▄██▄▄ ▄▄▀▄ ▄▄ ▄ ▄ █▀▄▄  ▀▄▄▀▄▄█ ▄█▀ █
+██  ▀ █▀▄█  ▄▄█▀ ▄▀▄▄ ▀█ █  ██▄▄█▀▄▀▄▀▄█ ▀  ▀▄██  ▄█▀█▄▀ ▄▄▀▄ ▀ █▀██▄▀▄████▀███▄▄█▀▀ ▄█▀▄▄█
+█▀▄▀▀▄█▀ ███▄ ██▄█ ▄▀█▀▀▀  █▄█  █ ▄▄▀ ▄██▄██▄▄▄▄▀▀█▀▄▄ ▄█▄  ▄██  ▄▄▄▄ ▀ ▄▀█▀  █▄█▀███▄▄▀▄██
+█▄█▀▀ ▄▀█▄█ ▀▄▀▄▀ ▄▀█  ▄ ▄  █ █▄▀▄█▄██▄█ ▄  ▄▀▄▀█▀ █▀▄█▀▄▄▄▀▄██▀▄ ▀▄▀█▄ ▄ █ ▄█▀█▄▀▀▀  █ ▄▄█
+█ ▄██▄ ▀█▄█▀▄█ ▀███▀ ▀▄█▄▀█▄▄█ █▄▀▄ ▀▄▄▀▄███▀██▄ ▀█▄▄▄ ▀█▄▄▀██▄█ ▄▄ ▄▄ ▀▄█▄ ▀ ▄▄▀█▄▄▄ ▄█▀▄█
+█▀██▀▀█▀▀▀█▀  █▄  █ █  ▀█▀██▀▀▀ █▀ ▄▀█▄█▀▀  ▄ ▀▀▀▀▀▀▄▄▄▀▄ ████▀ █ ██▀▀▄▀██▀ █▄██▄▄▄▄  ▀▀▄██
+██▀▄ █▀▀▄██▀█ ▀▀ ▄ ▀▀▀ █ ▀ ▄    ▀▄  ▀▀▄▄██▄ ▀▄█  ▀███▄ ██▄▄▀▄█▀█▀ ▀ ▄▄▄█▄▄▀█▀▄▄█▄██▄▀ ▄██▀█
+█▀ ▄ ▀ ▀█▀▀ █▄▀   ▄ █      █ ▀█▀▀▀ ▀ █▄▀██▄ █ ▀▀▄▄ ▀██▄ ▀▄ ▀▄ ▀██ ▀▀▀█▄▀▄▄▀▀ ▄█▄█ ▀▀  ▄█▄██
+█▀  ▀█▀▀█▀█▄█▀▄▀▄ ▄█▄▄▄▄▄ ██   ▄▄▀█ ▀▀ ▀██▀▀▀▄ ▄  ▀▄▄▄ ▀█ ▄ ▄█ ▄▀ ▄▀▄ ▄▄▄▄▀ ▀▄▀▄▀▄██▀█▄█▀▄█
+█ █▄▀▄▄▀  █▀█▄█  ▀█▄██▄█████ ▀█▀ ▀ ▀▄▄▀▀ ▀▄▄  ▀▀█  ▀▄███▀▀█▄▄▀█▀ ▄██ ▀▄▄▀▄▀ █▀███   ▀  ▄█▄█
+█ ▄█▀▄▄▀ ▄▄██▀ ▀▄▄██▄  ▄███▄█   ▀ ▀   █▀▄▄█▄▄▄▀▀▀ ▀▄█▄▄▀   ▀▄█▄▄▀  ▀█ █▄▄█▀▀  ▀▄▀▀▀▀▀▀▄▀▀██
+█▀▀▀▀▀▀▀█▄ █▀▄ ▄   ▀█▄▄ ▄ ▀▀█ █▀█ ▄▀▄▄▀▀▀▀▀▄▄▄▀█▀▀ █▀▀▀ █▀█ ▀▀▀ ▀ ▀█▀▀▄▀█▀▀▀▄█▀▄█ █▀█  ▀▄▄█
+█ █▀▀▀█ █  ▄▄▄  █▄▄▀ █ ▀▀▀███ ▀▀▀ ▄▄▀▀▄▀▄██▄▀▄█▀▀▀██▄▄▄ ▀▀▀ ██▀█▀▀▀▄▄▀▀█▄██ ▀ █▄▄ ▀▀▀ ▄▀▀██
+█ █   █ █ █ █▄█▄▄▄▄  ▄ ▄▄███ ▀█▀▀█▀██▀▄█ ▀▀▄ ▀▄▀ ▀ █▄▄ ▄█  ▄▀ █▀▄ ▀▀▄▄▄  █▀ █ ▀█▀▄▀▀ ▀█▄ ██
+█ ▀▀▀▀▀ █▀▀▄▄▀▄▄█ ▄▄  ▄▄▀▄▄█▀▀█  ▀▄  ▀▄▀▄███▀██▄▄▀▀█▄▄▀ ▀▀ ██▀█   ▄█▄  ▀▄█▀▄  ▀█▄▄ ▄▀▄ ▀▄██
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
