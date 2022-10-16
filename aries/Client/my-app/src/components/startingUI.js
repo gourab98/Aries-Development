@@ -1,4 +1,4 @@
-import React, {useEffect ,useState} from "react";
+import React, {useState} from "react";
 import Styles from "./startingUI.module.css";
 import QRCode from 'qrcode';
 
@@ -27,14 +27,8 @@ const StartingUI = () => {
   };
 
   const GenerateQRCode =() =>{
-    // useEffect(()=>{
-    //   QRCode.toDataURL(data).then((setQrcode));
-    // },[])
-    console.log(qrcode)
-
     QRCode.toDataURL(data,(err,data)=>{
       if(err) return console.error(err)
-
       console.log(data)
       setQrcode(data)
     })
@@ -49,7 +43,6 @@ const StartingUI = () => {
           <button className={Styles.button} type="submit" onClick={GenerateQRCode}>Create Invitation</button>
           <button className={Styles.button}>Release Credential</button>
           <button className={Styles.button}>Send Proof Request</button>
-          {/* <img src={qrImage} alt=""/> */}
           <img className={Styles.image} src={qrcode}/>
         </div>
       </div>
