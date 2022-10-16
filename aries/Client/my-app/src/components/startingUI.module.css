@@ -38,3 +38,10 @@ body {
     color: black;
     background-color: darkgrey;
 }
+
+.image{
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin: 2rem auto;
+}
