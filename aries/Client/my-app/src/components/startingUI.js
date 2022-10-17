@@ -29,7 +29,7 @@ const StartingUI = () => {
   const GenerateQRCode =() =>{
     QRCode.toDataURL(data,(err,data)=>{
       if(err) return console.error(err)
-      console.log(data)
+      //console.log(data)
       setQrcode(data)
     })
   }
@@ -43,6 +43,7 @@ const StartingUI = () => {
           <button className={Styles.button} type="submit" onClick={GenerateQRCode}>Create Invitation</button>
           <button className={Styles.button}>Release Credential</button>
           <button className={Styles.button}>Send Proof Request</button>
+          
           <img className={Styles.image} src={qrcode}/>
         </div>
       </div>

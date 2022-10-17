@@ -1,25 +1,25 @@
-DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation services. {
+ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation services. {
   "services": [
     {
       "id": "#inline",
       "serviceEndpoint": "https",
       "type": "did-communication",
       "recipientKeys": [
-        "did:key:z6Mksy81KBBTMYAa3NYLE45dTU4rEPStMnFYw4Sb2hrvJ7YD"
+        "did:key:z6MksEqrHyNPCtxTESqesLNnNqtZYRMTLyDVSiZnxmxWjsPz"
       ]
     }
   ]
 }
- DEBUG  DEBUG: Retrieved 0 connections for invitation did did:peer:2.SeyJzIjoiaHR0cHMiLCJ0IjoiZGlkLWNvbW11bmljYXRpb24iLCJwcmlvcml0eSI6MCwicmVjaXBpZW50S2V5cyI6WyJkaWQ6a2V5Ono2TWtzeTgxS0JCVE1ZQWEzTllMRTQ1ZFRVNHJFUFN0TW5GWXc0U2IyaHJ2SjdZRCN6Nk1rc3k4MUtCQlRNWUFhM05ZTEU0NWRUVTRyRVBTdE1uRll3NFNiMmhydko3WUQiXX0
+ DEBUG  DEBUG: Retrieved 0 connections for invitation did did:peer:2.SeyJzIjoiaHR0cHMiLCJ0IjoiZGlkLWNvbW11bmljYXRpb24iLCJwcmlvcml0eSI6MCwicmVjaXBpZW50S2V5cyI6WyJkaWQ6a2V5Ono2TWtzRXFySHlOUEN0eFRFU3Flc0xObk5xdFpZUk1UTHlEVlNpWm54bXhXanNQeiN6Nk1rc0Vxckh5TlBDdHhURVNxZXNMTm5OcXRaWVJNVEx5RFZTaVpueG14V2pzUHoiXX0
  DEBUG  DEBUG: Out of band message contains handshake protocols.
  DEBUG  DEBUG: Connection does not exist or reuse is disabled. Creating a new connection.
  DEBUG  DEBUG: Send outbound message {
   "message": {
     "@type": "https://didcomm.org/coordinate-mediation/1.0/keylist-update",
-    "@id": "d9f8d6ef-a0ca-4482-be6e-762607dcaaba",
+    "@id": "43994fa3-6227-4487-94f6-f32ed7abc372",
     "updates": [
       {
-        "recipient_key": "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323",
+        "recipient_key": "87Rew7NARVMgsgaZ5N9uKnANH2FRQD5kQFXW72SHxiE2",
         "action": "add"
       }
     ]
@@ -29,13 +29,13 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
  DEBUG  DEBUG: Retrieving services for connection '7887fd82-691b-4ad1-9274-c9f7053f153b' (Indicio Public Mediator) {
   "connection": {
     "_tags": {
-      "state": "completed",
-      "did": "did:peer:1zQmZs4FDYkvNKDiwwT711AQA7X8ak2usU11nkSRqbBjjyQc",
-      "threadId": "94345e76-99ba-4bf0-a079-203c1c35a012",
-      "outOfBandId": "46f39259-8fc5-4021-a9d6-7a5b4d55cd2f",
       "theirDid": "did:peer:1zQmeY2g4DVnB2iaspUp3W22TUQRd3A59FB6xQjmk69AwuED",
       "invitationDid": "did:peer:2.SeyJzIjoiaHR0cDovL21lZGlhdG9yMy50ZXN0LmluZGljaW90ZWNoLmlvOjMwMDAiLCJ0IjoiZGlkLWNvbW11bmljYXRpb24iLCJwcmlvcml0eSI6MCwicmVjaXBpZW50S2V5cyI6WyJkaWQ6a2V5Ono2TWtzYmtadHJwSzNHMkp3cTVlZnFyY0VQalJlTEoxTm9xaEdhaFY5aVFHSjh3VSN6Nk1rc2JrWnRycEszRzJKd3E1ZWZxcmNFUGpSZUxKMU5vcWhHYWhWOWlRR0o4d1UiXX0",
-      "role": "requester"
+      "did": "did:peer:1zQmZs4FDYkvNKDiwwT711AQA7X8ak2usU11nkSRqbBjjyQc",
+      "threadId": "94345e76-99ba-4bf0-a079-203c1c35a012",
+      "role": "requester",
+      "state": "completed",
+      "outOfBandId": "46f39259-8fc5-4021-a9d6-7a5b4d55cd2f"
     },
     "metadata": {},
     "id": "7887fd82-691b-4ad1-9274-c9f7053f153b",
@@ -60,7 +60,7 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
 }
  DEBUG  DEBUG: resolving didUrl did:peer:1zQmZs4FDYkvNKDiwwT711AQA7X8ak2usU11nkSRqbBjjyQc
  DEBUG  DEBUG: Sending outbound message to service: {
-  "messageId": "d9f8d6ef-a0ca-4482-be6e-762607dcaaba",
+  "messageId": "43994fa3-6227-4487-94f6-f32ed7abc372",
   "service": {
     "id": "#indy",
     "recipientKeys": "omitted...",
@@ -71,23 +71,23 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
  DEBUG  DEBUG: Pack outbound message https://didcomm.org/coordinate-mediation/1.0/keylist-update
  DEBUG  DEBUG: Sending outbound message to endpoint 'https://public.mediator.indiciotech.io' {
   "payload": {
-    "protected": "eyJlbmMiOiJ4Y2hhY2hhMjBwb2x5MTMwNV9pZXRmIiwidHlwIjoiSldNLzEuMCIsImFsZyI6IkF1dGhjcnlwdCIsInJlY2lwaWVudHMiOlt7ImVuY3J5cHRlZF9rZXkiOiJ2bHU0OEdjaExGR01ybGtCQXpGdFQzT3ktMXZmSnpHZm4xdkhfTnlMQllVOEh5Q0tORWd1OWV1WlVCa245RjRUIiwiaGVhZGVyIjp7ImtpZCI6IkduMWNDYkhYc3B1OGhOcGVjdVB2RlZvMTFzdHBQRG1KZ3BkUGFlUXNOenEyIiwiaXYiOiI3bnRDTmw5VjIzYW0tcHhFeGhGMzJtYWVVRURKNU1HdyIsInNlbmRlciI6IllqSkt4bEhHeWJVRnl5UWpEUVRqbzV0N0NkU2wzX0VyS0pNQVMwaG9RRVdmVE9GZTlWcE1HSDZiejdxdTBIVldlNkdaaE1sYTRnN3hTejc5UWY3S2gwbF9tWW9xdWc2U3c3QUhtZ3l3bElfM1JUU3Q0ckc0b0s4X09ubz0ifX1dfQ==",
-    "iv": "lmbcGpAsYoPkjPJQ",
-    "ciphertext": "dSWRh9UY6m7pf3ICYAYZnTqAhi5yP1mQZzwYbQ71waGdsJjprG22-USz78t7-tm2GbcHddIjHVhLpCQPF_ii86lXGHf3slN7ZcBJoUJq5uDcIw0Pxu3C-XQ7ZYaC4vbzMDg16ZwuNw2hFwhD130b2O0ankdQSqT-rFsyZtZ_pTbBVwHKMDGOLe6gT3KVjwML32SulsAszlqnSUbw1PmYqxWV2cvhwn-nqxqTWU81ALQOQAvNeVmDp2V6T69Jn4XMeGXPNkBXy0_BLkKq9ElPRPkcih6Y6F7OpggnI3pnneFuUu5-P2gUO9u4yZllpALbm7neWw==",
-    "tag": "QJRkSu30uIl8sM8TamfzXA=="
+    "protected": "eyJlbmMiOiJ4Y2hhY2hhMjBwb2x5MTMwNV9pZXRmIiwidHlwIjoiSldNLzEuMCIsImFsZyI6IkF1dGhjcnlwdCIsInJlY2lwaWVudHMiOlt7ImVuY3J5cHRlZF9rZXkiOiJBT1ZoNm9ORlRKYlRxLW5YMEc4dTFTX29Ld1M1WFlMcGhrcjlYUFd3cjI4OFJrUE5kY3VheHlVYk1ZVjhrdmZzIiwiaGVhZGVyIjp7ImtpZCI6IkduMWNDYkhYc3B1OGhOcGVjdVB2RlZvMTFzdHBQRG1KZ3BkUGFlUXNOenEyIiwiaXYiOiJ5T0FRSFFIdkVIZE5DTFEtVmIycDBfdWtsSEtYTTJESSIsInNlbmRlciI6IjhMSXVVeXBpa2t4dDlHdGlLQlNhcVJWZV9ZYkdob29WTnkyYmd1OXRPeVdNSnBIUTFFNTh5LVJqay1jRnF0MHhobWhTZ2N4SlFOU3dud2gtRDhkc0NhT3lfZmxIU2VDQnRuZmc3b3hxcDgtZHN1QWI3ZzU3aDRDZXBSYz0ifX1dfQ==",
+    "iv": "tT69gxpLHT601qdH",
+    "ciphertext": "FczLT8pUUn9mxzkunq4iK34m8ebEnz6wOGtA7z5p1L5Vc-n-F1I9fqdVD6br-yJpEkz97wgNKqLHv3n1VgDBOMauvSzzbpGBjHWjQ7f7dISskErgeod7czXuawyRHFuBaiZSbRnCuaH5QGSmWGhowvFGKlUSbMR-gtkku-T3URgRmA-J9hsz2MlM9RehigjSmrsHa_qnK-pI_cp0i0LJJ2USLnLshMVvMDApYfRowinp7IUIzSU_yxHdLBSLIX9eK3nDaaslNVFdT8sCW5AB0LhvzmM6ESYx0uGDuqgLDZQX-BNIHxegQ-IY3J-HLTVbnmqSlA==",
+    "tag": "U8S1bN5oiSGB655-dQeikw=="
   }
 }
  DEBUG  DEBUG: Response received {
-  "responseMessage": "{\"protected\":\"eyJlbmMiOiJ4Y2hhY2hhMjBwb2x5MTMwNV9pZXRmIiwidHlwIjoiSldNLzEuMCIsImFsZyI6IkF1dGhjcnlwdCIsInJlY2lwaWVudHMiOlt7ImVuY3J5cHRlZF9rZXkiOiJMOU5JbnllenZUVG81bkZiUmp1ZWxNX0M4ckJjazZtdEZ2SUg2NHQ0c2lHdlhxbm1IUno0REtNcm9OeGFvYUFYIiwiaGVhZGVyIjp7ImtpZCI6IkVoOVpBRDlGS2RoU2Q0emRzU2RyQ3dKRHp3RHd4cUtueE5TdzFXM1dvRVN1IiwiaXYiOiI1Vkx1YVFWTXFrT0hzVW9IaHB0UUZhS3dlT3R5TGxBMSIsInNlbmRlciI6IkJ4NHc4VGFYbjBydnAxQnJJbzBsZWExQTJWMGxUcS1RcW9lVElKR0FxSGozc3gtMzJRQ201TlN1RWgzdHYySWFKWW1qLWp0bnZGbjJkbm56NVlkcVFLOVpFTzZXdGJlTF9RajNpdXBwRWM0M05MaF9Lam5PdzNQQVJWaz0ifX1dfQ==\",\"iv\":\"Awaq-HHq-SBvhBLy\",\"ciphertext\":\"mlWeWXNjkiDKwZHLRhOu4ZXggxwfMURf-8taJpeECR1zAk3NThx5Eu8DSOfG2OvEJKWKegnHiEmjA2aIyyvAigZ2pYltHdreRfl9uVwmVHKcuLy4016nl2CmlDj1ljqze985bfM0M2K_oldZGQqgU3zTsK-9bY8C_maVCSrEk_8NNwMZEYA3u1jgZPsDPhyNRxbbIU2bVzm0YpiE_-ZgbrV5kod7maGL70PGUrX5yp1WVup0LGwlViVpDZcfN2RJ2sYPh9u8be440GDLasBvEwdBSdRN1nohO8jV_Td9a8YMf6P9OJqSoDrtDlz029OB14ssrGFjItHVJCPa4oEJtkryrAdCIw==\",\"tag\":\"XxDlDNWIsUwzRjxXLlQ_lw==\"}",
+  "responseMessage": "{\"protected\":\"eyJlbmMiOiJ4Y2hhY2hhMjBwb2x5MTMwNV9pZXRmIiwidHlwIjoiSldNLzEuMCIsImFsZyI6IkF1dGhjcnlwdCIsInJlY2lwaWVudHMiOlt7ImVuY3J5cHRlZF9rZXkiOiJFVGl1MDI1NDBWNnBZWW9vampUT1FJRHFsTkxGS3dsMDJnUWhkOU5ZS3RIODFCMG4xRGI0MjRxcG9kSTZVRUswIiwiaGVhZGVyIjp7ImtpZCI6IkVoOVpBRDlGS2RoU2Q0emRzU2RyQ3dKRHp3RHd4cUtueE5TdzFXM1dvRVN1IiwiaXYiOiJnR2ZjV3FWQTNLUzJRcWVqcEpuUks5VVJIWTNTX0FISyIsInNlbmRlciI6InZ6Zm1rVEhQNHhrZ1UxSWdHdUg4NVI4LUx2bGMtMWVOeW83ZzFfczNSMjV0cGROR2x0Y3pfdGdzakY1TXN6VDFMMXdSNzNGSWdtbUMxM2ZmLVlBYzRYNEtuTDBoRXd6TTZ4T2lFaW0ydzZpM2FZVVFaNlIwMjQ2bkQ0ST0ifX1dfQ==\",\"iv\":\"bkVozxnb6SMvMSqy\",\"ciphertext\":\"r5N7SuAy8UsPMCpVtjzQGTL56YhHxMt27SduVwILeSsVEdk8YPMumja2iof0JeDEBxBGkMYS0rLLIU03dP9Z3e7u98Z1HBj4zWImpsp7cS8XXo4dFVG8xBJQ6lRZB8IFY8zEUteU0yg4ZUL7xxmN82sUWVzCF1F1gcQkqM_9w1I744iscckjaipMERYt74LZZsjKJgNjpuobtrubqSRdz-71lo7D8h0AS-1iSppJ4KabzcPnDv0gL90fIJcXw8sEF5x2XNUEb5yUJXrS3o2_8rEyEWrUJ8qBEzxUuWqHy0vPVGlPuhtdHpwbUQlzLdTw-4NaaG09LrEJ77sjp0iiylIuv7cpPQ==\",\"tag\":\"bjZdL6RBoZSvngcrzlzp1A==\"}",
   "status": 200
 }
  DEBUG  DEBUG: Agent Aries Bifold received message
  INFO  INFO: Received message with type 'did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/coordinate-mediation/1.0/keylist-update-response', recipient key z6Mkt9QbkTPgfBBujZqLZ1bh42rDpWVoNia9ePMrqn1XiTEH and sender key z6MkvEGenqXyDNPbosfMJUMm6bLzqTAfo71fNqYKQvNtJDcQ {
   "@type": "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/coordinate-mediation/1.0/keylist-update-response",
-  "@id": "4ca33bf7-ed44-40b4-a4a6-625f13060dc7",
+  "@id": "d1e66e24-e462-42d4-9e7f-5a2c6e8a2f36",
   "updated": [
     {
-      "recipient_key": "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323",
+      "recipient_key": "87Rew7NARVMgsgaZ5N9uKnANH2FRQD5kQFXW72SHxiE2",
       "action": "add",
       "result": "success"
     }
@@ -96,18 +96,18 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
  DEBUG  DEBUG: Create message https://didcomm.org/connections/1.0/request start {
   "_tags": {
     "role": "receiver",
-    "recipientKeyFingerprints": [
-      "z6Mksy81KBBTMYAa3NYLE45dTU4rEPStMnFYw4Sb2hrvJ7YD"
-    ],
+    "invitationId": "46afe36c-e67d-4520-89f9-a1a46f0a0d96",
     "state": "initial",
-    "invitationId": "c3c7a330-fae2-441c-a037-d24c02c54be4"
+    "recipientKeyFingerprints": [
+      "z6MksEqrHyNPCtxTESqesLNnNqtZYRMTLyDVSiZnxmxWjsPz"
+    ]
   },
   "metadata": {},
-  "id": "f67ccccd-282a-4268-bef7-fb8f1a431a17",
-  "createdAt": "2022-10-16T20:15:01.096Z",
+  "id": "e741eeee-76f6-4c86-b1b4-5744fd794b80",
+  "createdAt": "2022-10-17T13:13:52.274Z",
   "outOfBandInvitation": {
     "@type": "https://didcomm.org/out-of-band/1.1/invitation",
-    "@id": "c3c7a330-fae2-441c-a037-d24c02c54be4",
+    "@id": "46afe36c-e67d-4520-89f9-a1a46f0a0d96",
     "label": "faber.agent",
     "accept": [
       "didcomm/aip1",
@@ -122,7 +122,7 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
         "serviceEndpoint": "https",
         "type": "did-communication",
         "recipientKeys": [
-          "did:key:z6Mksy81KBBTMYAa3NYLE45dTU4rEPStMnFYw4Sb2hrvJ7YD"
+          "did:key:z6MksEqrHyNPCtxTESqesLNnNqtZYRMTLyDVSiZnxmxWjsPz"
         ]
       }
     ]
@@ -133,43 +133,43 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
   "reusable": false
 }
  DEBUG  DEBUG: Saving DID record {
-  "id": "did:peer:1zQmdYrWhLMyo5oxsR4iwK3K1FYhFqYB5iSgXYg7fmWV6Dg2",
+  "id": "did:peer:1zQmNv935YxjLoKpfR9KKMsYHFq9JdA1snFtr3rwqYTVHg6d",
   "role": "created",
   "tags": {
     "recipientKeyFingerprints": [
-      "z6MkudiBBugCFPE1djp8hZcGMry4P82dFNMeuoVkG7QSiFoR"
+      "z6MkmZghXMcbm2r9zBRFkw7kAsiN6bXGp6L76GSRwJQJsw1Q"
     ],
     "role": "created",
     "method": "peer",
-    "legacyUnqualifiedDid": "UrQUpXPWWU6nx9YR89iM3H"
+    "legacyUnqualifiedDid": "E3hNXYP4VwFk2AV3E2gtW1"
   },
   "didDocument": "omitted..."
 }
  DEBUG  DEBUG: Did record created. {
   "_tags": {
     "recipientKeyFingerprints": [
-      "z6MkudiBBugCFPE1djp8hZcGMry4P82dFNMeuoVkG7QSiFoR"
+      "z6MkmZghXMcbm2r9zBRFkw7kAsiN6bXGp6L76GSRwJQJsw1Q"
     ]
   },
   "metadata": {
     "_internal/legacyDid": {
-      "unqualifiedDid": "UrQUpXPWWU6nx9YR89iM3H",
-      "didDocumentString": "{\"@context\":\"https://w3id.org/did/v1\",\"publicKey\":[{\"id\":\"UrQUpXPWWU6nx9YR89iM3H#1\",\"controller\":\"UrQUpXPWWU6nx9YR89iM3H\",\"type\":\"Ed25519VerificationKey2018\",\"publicKeyBase58\":\"GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323\"}],\"service\":[{\"id\":\"UrQUpXPWWU6nx9YR89iM3H#IndyAgentService\",\"serviceEndpoint\":\"https://public.mediator.indiciotech.io\",\"type\":\"IndyAgent\",\"priority\":0,\"recipientKeys\":[\"GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323\"],\"routingKeys\":[\"DGYY31KpABLT4ydNHw11rRneEL8a41X4s6xqre2cAEbn\"]}],\"authentication\":[{\"publicKey\":\"UrQUpXPWWU6nx9YR89iM3H#1\",\"type\":\"Ed25519SignatureAuthentication2018\"}],\"id\":\"UrQUpXPWWU6nx9YR89iM3H\"}"
+      "unqualifiedDid": "E3hNXYP4VwFk2AV3E2gtW1",
+      "didDocumentString": "{\"@context\":\"https://w3id.org/did/v1\",\"publicKey\":[{\"id\":\"E3hNXYP4VwFk2AV3E2gtW1#1\",\"controller\":\"E3hNXYP4VwFk2AV3E2gtW1\",\"type\":\"Ed25519VerificationKey2018\",\"publicKeyBase58\":\"87Rew7NARVMgsgaZ5N9uKnANH2FRQD5kQFXW72SHxiE2\"}],\"service\":[{\"id\":\"E3hNXYP4VwFk2AV3E2gtW1#IndyAgentService\",\"serviceEndpoint\":\"https://public.mediator.indiciotech.io\",\"type\":\"IndyAgent\",\"priority\":0,\"recipientKeys\":[\"87Rew7NARVMgsgaZ5N9uKnANH2FRQD5kQFXW72SHxiE2\"],\"routingKeys\":[\"DGYY31KpABLT4ydNHw11rRneEL8a41X4s6xqre2cAEbn\"]}],\"authentication\":[{\"publicKey\":\"E3hNXYP4VwFk2AV3E2gtW1#1\",\"type\":\"Ed25519SignatureAuthentication2018\"}],\"id\":\"E3hNXYP4VwFk2AV3E2gtW1\"}"
     }
   },
-  "id": "did:peer:1zQmdYrWhLMyo5oxsR4iwK3K1FYhFqYB5iSgXYg7fmWV6Dg2",
+  "id": "did:peer:1zQmNv935YxjLoKpfR9KKMsYHFq9JdA1snFtr3rwqYTVHg6d",
   "role": "created",
   "didDocument": {
     "@context": [
       "https://w3id.org/did/v1"
     ],
-    "id": "did:peer:1zQmdYrWhLMyo5oxsR4iwK3K1FYhFqYB5iSgXYg7fmWV6Dg2",
+    "id": "did:peer:1zQmNv935YxjLoKpfR9KKMsYHFq9JdA1snFtr3rwqYTVHg6d",
     "verificationMethod": [
       {
-        "id": "#GBT8bfRk",
+        "id": "#87Rew7NA",
         "type": "Ed25519VerificationKey2018",
         "controller": "#id",
-        "publicKeyBase58": "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323"
+        "publicKeyBase58": "87Rew7NARVMgsgaZ5N9uKnANH2FRQD5kQFXW72SHxiE2"
       }
     ],
     "service": [
@@ -179,7 +179,7 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
         "type": "IndyAgent",
         "priority": 0,
         "recipientKeys": [
-          "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323"
+          "87Rew7NARVMgsgaZ5N9uKnANH2FRQD5kQFXW72SHxiE2"
         ],
         "routingKeys": [
           "DGYY31KpABLT4ydNHw11rRneEL8a41X4s6xqre2cAEbn"
@@ -187,36 +187,36 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
       }
     ],
     "authentication": [
-      "#GBT8bfRk"
+      "#87Rew7NA"
     ]
   },
-  "createdAt": "2022-10-16T20:15:02.711Z"
+  "createdAt": "2022-10-17T13:13:53.418Z"
 }
  DEBUG  DEBUG: Send outbound message {
   "message": {
     "@type": "https://didcomm.org/connections/1.0/request",
-    "@id": "0e5b5c51-3d9f-4750-b6ba-650f8b5b1200",
+    "@id": "c750612e-8c52-48bb-a5a8-d029b30116e6",
     "label": "Aries Bifold",
     "connection": {
-      "DID": "UrQUpXPWWU6nx9YR89iM3H",
+      "DID": "E3hNXYP4VwFk2AV3E2gtW1",
       "DIDDoc": {
         "@context": "https://w3id.org/did/v1",
         "publicKey": [
           {
-            "id": "UrQUpXPWWU6nx9YR89iM3H#1",
-            "controller": "UrQUpXPWWU6nx9YR89iM3H",
+            "id": "E3hNXYP4VwFk2AV3E2gtW1#1",
+            "controller": "E3hNXYP4VwFk2AV3E2gtW1",
             "type": "Ed25519VerificationKey2018",
-            "publicKeyBase58": "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323"
+            "publicKeyBase58": "87Rew7NARVMgsgaZ5N9uKnANH2FRQD5kQFXW72SHxiE2"
           }
         ],
         "service": [
           {
-            "id": "UrQUpXPWWU6nx9YR89iM3H#IndyAgentService",
+            "id": "E3hNXYP4VwFk2AV3E2gtW1#IndyAgentService",
             "serviceEndpoint": "https://public.mediator.indiciotech.io",
             "type": "IndyAgent",
             "priority": 0,
             "recipientKeys": [
-              "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323"
+              "87Rew7NARVMgsgaZ5N9uKnANH2FRQD5kQFXW72SHxiE2"
             ],
             "routingKeys": [
               "DGYY31KpABLT4ydNHw11rRneEL8a41X4s6xqre2cAEbn"
@@ -225,40 +225,40 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
         ],
         "authentication": [
           {
-            "publicKey": "UrQUpXPWWU6nx9YR89iM3H#1",
+            "publicKey": "E3hNXYP4VwFk2AV3E2gtW1#1",
             "type": "Ed25519SignatureAuthentication2018"
           }
         ],
-        "id": "UrQUpXPWWU6nx9YR89iM3H"
+        "id": "E3hNXYP4VwFk2AV3E2gtW1"
       }
     }
   },
-  "connectionId": "3dd9ac4c-d0aa-4c62-b5bd-48af53af5977"
+  "connectionId": "a3e32aa9-8668-4ee1-9b2d-cd7f7a4a9e9e"
 }
- DEBUG  DEBUG: Retrieving services for connection '3dd9ac4c-d0aa-4c62-b5bd-48af53af5977' (faber.agent) {
+ DEBUG  DEBUG: Retrieving services for connection 'a3e32aa9-8668-4ee1-9b2d-cd7f7a4a9e9e' (faber.agent) {
   "connection": {
     "_tags": {},
     "metadata": {},
-    "id": "3dd9ac4c-d0aa-4c62-b5bd-48af53af5977",
-    "createdAt": "2022-10-16T20:15:02.746Z",
-    "did": "did:peer:1zQmdYrWhLMyo5oxsR4iwK3K1FYhFqYB5iSgXYg7fmWV6Dg2",
-    "invitationDid": "did:peer:2.SeyJzIjoiaHR0cHMiLCJ0IjoiZGlkLWNvbW11bmljYXRpb24iLCJwcmlvcml0eSI6MCwicmVjaXBpZW50S2V5cyI6WyJkaWQ6a2V5Ono2TWtzeTgxS0JCVE1ZQWEzTllMRTQ1ZFRVNHJFUFN0TW5GWXc0U2IyaHJ2SjdZRCN6Nk1rc3k4MUtCQlRNWUFhM05ZTEU0NWRUVTRyRVBTdE1uRll3NFNiMmhydko3WUQiXX0",
+    "id": "a3e32aa9-8668-4ee1-9b2d-cd7f7a4a9e9e",
+    "createdAt": "2022-10-17T13:13:53.439Z",
+    "did": "did:peer:1zQmNv935YxjLoKpfR9KKMsYHFq9JdA1snFtr3rwqYTVHg6d",
+    "invitationDid": "did:peer:2.SeyJzIjoiaHR0cHMiLCJ0IjoiZGlkLWNvbW11bmljYXRpb24iLCJwcmlvcml0eSI6MCwicmVjaXBpZW50S2V5cyI6WyJkaWQ6a2V5Ono2TWtzRXFySHlOUEN0eFRFU3Flc0xObk5xdFpZUk1UTHlEVlNpWm54bXhXanNQeiN6Nk1rc0Vxckh5TlBDdHhURVNxZXNMTm5OcXRaWVJNVEx5RFZTaVpueG14V2pzUHoiXX0",
     "theirLabel": "faber.agent",
     "state": "request-sent",
     "role": "requester",
     "autoAcceptConnection": true,
-    "threadId": "0e5b5c51-3d9f-4750-b6ba-650f8b5b1200",
+    "threadId": "c750612e-8c52-48bb-a5a8-d029b30116e6",
     "protocol": "https://didcomm.org/connections/1.0",
-    "outOfBandId": "f67ccccd-282a-4268-bef7-fb8f1a431a17"
+    "outOfBandId": "e741eeee-76f6-4c86-b1b4-5744fd794b80"
   }
 }
- DEBUG  DEBUG: Resolving services from out-of-band record f67ccccd-282a-4268-bef7-fb8f1a431a17.
- DEBUG  DEBUG: Retrieved 1 services for message to connection '3dd9ac4c-d0aa-4c62-b5bd-48af53af5977'(faber.agent)' {
+ DEBUG  DEBUG: Resolving services from out-of-band record e741eeee-76f6-4c86-b1b4-5744fd794b80.
+ DEBUG  DEBUG: Retrieved 1 services for message to connection 'a3e32aa9-8668-4ee1-9b2d-cd7f7a4a9e9e'(faber.agent)' {
   "hasQueueService": false
 }
- DEBUG  DEBUG: resolving didUrl did:peer:1zQmdYrWhLMyo5oxsR4iwK3K1FYhFqYB5iSgXYg7fmWV6Dg2
+ DEBUG  DEBUG: resolving didUrl did:peer:1zQmNv935YxjLoKpfR9KKMsYHFq9JdA1snFtr3rwqYTVHg6d
  DEBUG  DEBUG: Sending outbound message to service: {
-  "messageId": "0e5b5c51-3d9f-4750-b6ba-650f8b5b1200",
+  "messageId": "c750612e-8c52-48bb-a5a8-d029b30116e6",
   "service": {
     "id": "#inline",
     "recipientKeys": "omitted...",
@@ -269,10 +269,10 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
  DEBUG  DEBUG: Pack outbound message https://didcomm.org/connections/1.0/request
  DEBUG  DEBUG: Sending outbound message to endpoint 'https' {
   "payload": {
-    "protected": "eyJlbmMiOiJ4Y2hhY2hhMjBwb2x5MTMwNV9pZXRmIiwidHlwIjoiSldNLzEuMCIsImFsZyI6IkF1dGhjcnlwdCIsInJlY2lwaWVudHMiOlt7ImVuY3J5cHRlZF9rZXkiOiJHVEEzZ0txWER1QTl2WEVwcUpQbF93dW0wT2ptSjE1TkxnRVdpRURtbVdYWEtLRDRUNk1kWW5ZTVhvZDZqWmVzIiwiaGVhZGVyIjp7ImtpZCI6IkVXcnhpdncyMXpnNnZzaGRZVjduY05XclFwQjJ3dTFDRjNYZkNSdHVOdGtxIiwiaXYiOiJnZTN3NFlzTnZ2VmpqNzZhazNLcVlKd2U5aGJGNnpERSIsInNlbmRlciI6IklNd3pQYm9lUWlHcXQ4Y3lpM1F5VUE0VFAzOWRXQlpjd1B3NFI0N2dXVGgtVmJ0bGZrV3FTVl80bTFINlVkeGR0c1JjcjJ1SDU5bVNzOGViMWhSekttM2hfSXBLanNBMVJiYXVsazd2anY3VjJtb1BNZFdybHV1VmlHOD0ifX1dfQ==",
-    "iv": "IOn2P3lrOPnZJiiE",
-    "ciphertext": "HRLGPfZKqTTFxx5VEC2B1oGmnzYcHZ3Y4yiyuZSbRJ79hFxB16D5pUWCR8yawXCNJOn2PPRrGTidNS0CV4zfXBNnrxAPpCPUp6WQPTSasWV6azvmGieLgDKOQc7-u_rxtYIWdziZykLYyirvRHvf9AM8lmEtlSBjjj9wPSPiAdYEQJ3DZAty7zopVMLutW3aARUMX8ikGtzK1q8tGsKJro4D7-wlI_DmoBLqDstN9RaUN-hsunSwMsRlcO5lJaihkUeP-u-YtC_MtcnYBzz0s1F_zwsAl883Wn_2V5s6bkzglV_1zZrQL1zkQWGwLeVatd9T6AXZldtpEg35eFJbZe8aCHuituRikraM-40wyR2i4I-39c3qOyt5lEUJ_aGhm5OxuMBlQWv8oTb1tr73ggriaxElFoFANUrHT-SqL7n2i1jG2Q6DcfdH2HUeTEFX7yUTvTcqIpxtzVEdwTeUBKFIXtYD1LPD0XqdW_Rrmb4iY2B7gYcNJTyUIGrjekDQInr13udCvVvqWwLUffIPAOdF5qu_IFBVE1gOHADAcIZGIoeaQWN7Yuw-WHemSCSSQ-yuadEUlhLMIxUS7xQgeax7VnZewlRlrYt9GDVLaAsSklgM95EMZpFKi2hIextOB5Wiruy1pEbUjclCNQ_bdhM8QV70lU-UPgo9i0RgvGlEcDCqzPSSP6imS8dBZzf8tbPIfxRV-kz4ZfSqzsRnEh6KFnNPLiSgV_g_ER9YrpqVZMLcyulP4ikPwfIc0roD401Mlz72kGeg8ql49Pqq9w_ofSlsG0O-Rhyk9AwjXEcvECZVDX8QpRzupgD43WaDmB-F6Av8QkrQ76OHrDbKLQ52ZHkXZD1cTlu7EjlP7gL2fZ91vHDrfj7vDJghKbkACEG4vjT-euc9psK2CN2thrBlmAT9TXw4bIKfdnuA_UqWQyI7IS3FgjbOEqigoAENn4IE7u4Q74xJFYxPxb_-SRWEjRNd23KTr1OFB0CIG6wXd4utVmZ1-WKcZbSbUlptT_e-wz7-9PgYyszcsmdKdBYvvGpMoXdICJkRiwcC0D3VWXtQezkkmzEFOkryCJfFtuc=",
-    "tag": "NAXHrDSSo55sa1owHSzPXA=="
+    "protected": "eyJlbmMiOiJ4Y2hhY2hhMjBwb2x5MTMwNV9pZXRmIiwidHlwIjoiSldNLzEuMCIsImFsZyI6IkF1dGhjcnlwdCIsInJlY2lwaWVudHMiOlt7ImVuY3J5cHRlZF9rZXkiOiJjMFdMcGlIU1ZCem4tTkhycWNFLXlOWkw4YTE0WDh5Zk1OZktOWkFXbFBrTzFXRzdfRGN5T0VlREJaYWlySFFHIiwiaGVhZGVyIjp7ImtpZCI6IkRuYW9oajd3c01Uejd3enhCbVF3WGtMWmlyNWJ3NXk4a2hlczhWelZwZWNjIiwiaXYiOiJUWnZPMk44MXlibGxOVEJLbWtXZjlrNXBabk9pUUF2VyIsInNlbmRlciI6ImhrTXhueUpVTExsbXdqRWwxVkxvUHRUOEstbTJpeTduWEVZcnRoQ3FnbjBwOHVLcGNMajQzQkZlM2x5VnBOOVJOX2owSnZkR1VtMEsyLW1TbWhZek5SaDdlWlRHYkNvWmwwd2V4UUs2cUFBcWZ2S2JUczdTMzBKTnE2az0ifX1dfQ==",
+    "iv": "wGiRIJ61Z-taC12u",
+    "ciphertext": "iFWm49ja8WJmcnS-trZwfe9XzCr7wmtEEBYxSvp4DXNS0AloLyHNJDGVns-WJL9Uu2duz_xAKlI-UDedkbaoRanbCrm4WusLle9MtdbKOOYf5etWwGt4t3X6_Nzt7aBMEbdS5_sujX3_Y4_-zb_oBf1jMhOANS5RiSrN7rDr7eBywkeguEfNa1TH-Oy14ja9iNWJHIZg4U_cIs0UxVFU_BYTd3nDDyle910MtVKdlHN7kI_lXsDaenvZ-wzQtND0q8S3xh_If-cnKXX7CAFkEY-3rRBZBpAD8hs785IqwrZPUXzSMqWRNI45clm3Bwte7qoTR5-TLMRHFz2zY1qATkhMutpLxxjPqC6I9L9Jpume4O0Equn91GRrQjVonDb_ZGpdB5AJ3_Q_stmCh16NuboywmKlpaJoCspPgCENnqiTgwd58VeeYKHAEwGNK_V3140h00nuhJhgUCQsl8Qr_D_A_LddYYoow2bFbjLoiAeBLS2CqgF4Q5e5oKorJKe1_IvboXutFWvsqyp5zn_BGkvJRIKGGE8VijI8l44fuhEJ65Mt__RFBT8XK9vim6l2gfZuMjgMlDY26yz8vp_fB3c681t0_WLyNhA484LzcjKxFTkHXO8EAHsHvh3QG9s1Ky730a4MZ3p2mHe4a6Z05Fiv82k8WApK0W_6__BNs8Z4_yIBIDOcJJ8rV8iIwR5pcGUkJeVs8ULf6AziCEEN11x0BWj_PTU452_f_P3_zgarxO1xIFZvJDTH5J5q_0h7Wpyuzij_Efd8IZGvZ_nyCsxGl4o18UCSFImhE6PO3epKDbYO9sOLxQCa7fF1osic3q5GsZQwD5giXjmmzD8Ad0bmUyri1DLWN13kJrVBugZ4oMq4eZ81LLKWW1SIjKaUhIoEivy6ZFLCvJTSCfFXqM6Vbu0GKPjCykPWWpEu21vvHwROaKrZg_4gTxl6qkx7pdD9MpZM3XsD9BwAjVdCIdnZWaJdrQmlV6UPKdiehYKbacym8KLi19mF86VkKpXebEy77kTpe7JM5Bym2Tik5aPDXUYzTQVvTcMp9Cl3i191EzRu9CFimKUqthlKRapnAUc=",
+    "tag": "W96vQBgBaLbv_mzbYTObjA=="
   }
 }
  ERROR  ERROR: Error sending message to https: Network request failed {
@@ -283,10 +283,10 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
   },
   "message": "Network request failed",
   "body": {
-    "protected": "eyJlbmMiOiJ4Y2hhY2hhMjBwb2x5MTMwNV9pZXRmIiwidHlwIjoiSldNLzEuMCIsImFsZyI6IkF1dGhjcnlwdCIsInJlY2lwaWVudHMiOlt7ImVuY3J5cHRlZF9rZXkiOiJHVEEzZ0txWER1QTl2WEVwcUpQbF93dW0wT2ptSjE1TkxnRVdpRURtbVdYWEtLRDRUNk1kWW5ZTVhvZDZqWmVzIiwiaGVhZGVyIjp7ImtpZCI6IkVXcnhpdncyMXpnNnZzaGRZVjduY05XclFwQjJ3dTFDRjNYZkNSdHVOdGtxIiwiaXYiOiJnZTN3NFlzTnZ2VmpqNzZhazNLcVlKd2U5aGJGNnpERSIsInNlbmRlciI6IklNd3pQYm9lUWlHcXQ4Y3lpM1F5VUE0VFAzOWRXQlpjd1B3NFI0N2dXVGgtVmJ0bGZrV3FTVl80bTFINlVkeGR0c1JjcjJ1SDU5bVNzOGViMWhSekttM2hfSXBLanNBMVJiYXVsazd2anY3VjJtb1BNZFdybHV1VmlHOD0ifX1dfQ==",
-    "iv": "IOn2P3lrOPnZJiiE",
-    "ciphertext": "HRLGPfZKqTTFxx5VEC2B1oGmnzYcHZ3Y4yiyuZSbRJ79hFxB16D5pUWCR8yawXCNJOn2PPRrGTidNS0CV4zfXBNnrxAPpCPUp6WQPTSasWV6azvmGieLgDKOQc7-u_rxtYIWdziZykLYyirvRHvf9AM8lmEtlSBjjj9wPSPiAdYEQJ3DZAty7zopVMLutW3aARUMX8ikGtzK1q8tGsKJro4D7-wlI_DmoBLqDstN9RaUN-hsunSwMsRlcO5lJaihkUeP-u-YtC_MtcnYBzz0s1F_zwsAl883Wn_2V5s6bkzglV_1zZrQL1zkQWGwLeVatd9T6AXZldtpEg35eFJbZe8aCHuituRikraM-40wyR2i4I-39c3qOyt5lEUJ_aGhm5OxuMBlQWv8oTb1tr73ggriaxElFoFANUrHT-SqL7n2i1jG2Q6DcfdH2HUeTEFX7yUTvTcqIpxtzVEdwTeUBKFIXtYD1LPD0XqdW_Rrmb4iY2B7gYcNJTyUIGrjekDQInr13udCvVvqWwLUffIPAOdF5qu_IFBVE1gOHADAcIZGIoeaQWN7Yuw-WHemSCSSQ-yuadEUlhLMIxUS7xQgeax7VnZewlRlrYt9GDVLaAsSklgM95EMZpFKi2hIextOB5Wiruy1pEbUjclCNQ_bdhM8QV70lU-UPgo9i0RgvGlEcDCqzPSSP6imS8dBZzf8tbPIfxRV-kz4ZfSqzsRnEh6KFnNPLiSgV_g_ER9YrpqVZMLcyulP4ikPwfIc0roD401Mlz72kGeg8ql49Pqq9w_ofSlsG0O-Rhyk9AwjXEcvECZVDX8QpRzupgD43WaDmB-F6Av8QkrQ76OHrDbKLQ52ZHkXZD1cTlu7EjlP7gL2fZ91vHDrfj7vDJghKbkACEG4vjT-euc9psK2CN2thrBlmAT9TXw4bIKfdnuA_UqWQyI7IS3FgjbOEqigoAENn4IE7u4Q74xJFYxPxb_-SRWEjRNd23KTr1OFB0CIG6wXd4utVmZ1-WKcZbSbUlptT_e-wz7-9PgYyszcsmdKdBYvvGpMoXdICJkRiwcC0D3VWXtQezkkmzEFOkryCJfFtuc=",
-    "tag": "NAXHrDSSo55sa1owHSzPXA=="
+    "protected": "eyJlbmMiOiJ4Y2hhY2hhMjBwb2x5MTMwNV9pZXRmIiwidHlwIjoiSldNLzEuMCIsImFsZyI6IkF1dGhjcnlwdCIsInJlY2lwaWVudHMiOlt7ImVuY3J5cHRlZF9rZXkiOiJjMFdMcGlIU1ZCem4tTkhycWNFLXlOWkw4YTE0WDh5Zk1OZktOWkFXbFBrTzFXRzdfRGN5T0VlREJaYWlySFFHIiwiaGVhZGVyIjp7ImtpZCI6IkRuYW9oajd3c01Uejd3enhCbVF3WGtMWmlyNWJ3NXk4a2hlczhWelZwZWNjIiwiaXYiOiJUWnZPMk44MXlibGxOVEJLbWtXZjlrNXBabk9pUUF2VyIsInNlbmRlciI6ImhrTXhueUpVTExsbXdqRWwxVkxvUHRUOEstbTJpeTduWEVZcnRoQ3FnbjBwOHVLcGNMajQzQkZlM2x5VnBOOVJOX2owSnZkR1VtMEsyLW1TbWhZek5SaDdlWlRHYkNvWmwwd2V4UUs2cUFBcWZ2S2JUczdTMzBKTnE2az0ifX1dfQ==",
+    "iv": "wGiRIJ61Z-taC12u",
+    "ciphertext": "iFWm49ja8WJmcnS-trZwfe9XzCr7wmtEEBYxSvp4DXNS0AloLyHNJDGVns-WJL9Uu2duz_xAKlI-UDedkbaoRanbCrm4WusLle9MtdbKOOYf5etWwGt4t3X6_Nzt7aBMEbdS5_sujX3_Y4_-zb_oBf1jMhOANS5RiSrN7rDr7eBywkeguEfNa1TH-Oy14ja9iNWJHIZg4U_cIs0UxVFU_BYTd3nDDyle910MtVKdlHN7kI_lXsDaenvZ-wzQtND0q8S3xh_If-cnKXX7CAFkEY-3rRBZBpAD8hs785IqwrZPUXzSMqWRNI45clm3Bwte7qoTR5-TLMRHFz2zY1qATkhMutpLxxjPqC6I9L9Jpume4O0Equn91GRrQjVonDb_ZGpdB5AJ3_Q_stmCh16NuboywmKlpaJoCspPgCENnqiTgwd58VeeYKHAEwGNK_V3140h00nuhJhgUCQsl8Qr_D_A_LddYYoow2bFbjLoiAeBLS2CqgF4Q5e5oKorJKe1_IvboXutFWvsqyp5zn_BGkvJRIKGGE8VijI8l44fuhEJ65Mt__RFBT8XK9vim6l2gfZuMjgMlDY26yz8vp_fB3c681t0_WLyNhA484LzcjKxFTkHXO8EAHsHvh3QG9s1Ky730a4MZ3p2mHe4a6Z05Fiv82k8WApK0W_6__BNs8Z4_yIBIDOcJJ8rV8iIwR5pcGUkJeVs8ULf6AziCEEN11x0BWj_PTU452_f_P3_zgarxO1xIFZvJDTH5J5q_0h7Wpyuzij_Efd8IZGvZ_nyCsxGl4o18UCSFImhE6PO3epKDbYO9sOLxQCa7fF1osic3q5GsZQwD5giXjmmzD8Ad0bmUyri1DLWN13kJrVBugZ4oMq4eZ81LLKWW1SIjKaUhIoEivy6ZFLCvJTSCfFXqM6Vbu0GKPjCykPWWpEu21vvHwROaKrZg_4gTxl6qkx7pdD9MpZM3XsD9BwAjVdCIdnZWaJdrQmlV6UPKdiehYKbacym8KLi19mF86VkKpXebEy77kTpe7JM5Bym2Tik5aPDXUYzTQVvTcMp9Cl3i191EzRu9CFimKUqthlKRapnAUc=",
+    "tag": "W96vQBgBaLbv_mzbYTObjA=="
   },
   "didCommMimeType": "application/ssi-agent-wire"
 }
@@ -303,31 +303,31 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
     }
   }
 }
- ERROR  ERROR: Message is undeliverable to connection 3dd9ac4c-d0aa-4c62-b5bd-48af53af5977 (faber.agent) {
+ ERROR  ERROR: Message is undeliverable to connection a3e32aa9-8668-4ee1-9b2d-cd7f7a4a9e9e (faber.agent) {
   "message": {
     "@type": "https://didcomm.org/connections/1.0/request",
-    "@id": "0e5b5c51-3d9f-4750-b6ba-650f8b5b1200",
+    "@id": "c750612e-8c52-48bb-a5a8-d029b30116e6",
     "label": "Aries Bifold",
     "connection": {
-      "DID": "UrQUpXPWWU6nx9YR89iM3H",
+      "DID": "E3hNXYP4VwFk2AV3E2gtW1",
       "DIDDoc": {
         "@context": "https://w3id.org/did/v1",
         "publicKey": [
           {
-            "id": "UrQUpXPWWU6nx9YR89iM3H#1",
-            "controller": "UrQUpXPWWU6nx9YR89iM3H",
+            "id": "E3hNXYP4VwFk2AV3E2gtW1#1",
+            "controller": "E3hNXYP4VwFk2AV3E2gtW1",
             "type": "Ed25519VerificationKey2018",
-            "publicKeyBase58": "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323"
+            "publicKeyBase58": "87Rew7NARVMgsgaZ5N9uKnANH2FRQD5kQFXW72SHxiE2"
           }
         ],
         "service": [
           {
-            "id": "UrQUpXPWWU6nx9YR89iM3H#IndyAgentService",
+            "id": "E3hNXYP4VwFk2AV3E2gtW1#IndyAgentService",
             "serviceEndpoint": "https://public.mediator.indiciotech.io",
             "type": "IndyAgent",
             "priority": 0,
             "recipientKeys": [
-              "GBT8bfRkuqjYXEyS1zeRWmR4ZYkmqV7JDnapRqSRo323"
+              "87Rew7NARVMgsgaZ5N9uKnANH2FRQD5kQFXW72SHxiE2"
             ],
             "routingKeys": [
               "DGYY31KpABLT4ydNHw11rRneEL8a41X4s6xqre2cAEbn"
@@ -336,11 +336,11 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
         ],
         "authentication": [
           {
-            "publicKey": "UrQUpXPWWU6nx9YR89iM3H#1",
+            "publicKey": "E3hNXYP4VwFk2AV3E2gtW1#1",
             "type": "Ed25519SignatureAuthentication2018"
           }
         ],
-        "id": "UrQUpXPWWU6nx9YR89iM3H"
+        "id": "E3hNXYP4VwFk2AV3E2gtW1"
       }
     }
   },
@@ -359,17 +359,17 @@ DEBUG  DEBUG: Searching for an existing connection for out-of-band invitation se
   "connection": {
     "_tags": {},
     "metadata": {},
-    "id": "3dd9ac4c-d0aa-4c62-b5bd-48af53af5977",
-    "createdAt": "2022-10-16T20:15:02.746Z",
-    "did": "did:peer:1zQmdYrWhLMyo5oxsR4iwK3K1FYhFqYB5iSgXYg7fmWV6Dg2",
-    "invitationDid": "did:peer:2.SeyJzIjoiaHR0cHMiLCJ0IjoiZGlkLWNvbW11bmljYXRpb24iLCJwcmlvcml0eSI6MCwicmVjaXBpZW50S2V5cyI6WyJkaWQ6a2V5Ono2TWtzeTgxS0JCVE1ZQWEzTllMRTQ1ZFRVNHJFUFN0TW5GWXc0U2IyaHJ2SjdZRCN6Nk1rc3k4MUtCQlRNWUFhM05ZTEU0NWRUVTRyRVBTdE1uRll3NFNiMmhydko3WUQiXX0",
+    "id": "a3e32aa9-8668-4ee1-9b2d-cd7f7a4a9e9e",
+    "createdAt": "2022-10-17T13:13:53.439Z",
+    "did": "did:peer:1zQmNv935YxjLoKpfR9KKMsYHFq9JdA1snFtr3rwqYTVHg6d",
+    "invitationDid": "did:peer:2.SeyJzIjoiaHR0cHMiLCJ0IjoiZGlkLWNvbW11bmljYXRpb24iLCJwcmlvcml0eSI6MCwicmVjaXBpZW50S2V5cyI6WyJkaWQ6a2V5Ono2TWtzRXFySHlOUEN0eFRFU3Flc0xObk5xdFpZUk1UTHlEVlNpWm54bXhXanNQeiN6Nk1rc0Vxckh5TlBDdHhURVNxZXNMTm5OcXRaWVJNVEx5RFZTaVpueG14V2pzUHoiXX0",
     "theirLabel": "faber.agent",
     "state": "request-sent",
     "role": "requester",
     "autoAcceptConnection": true,
-    "threadId": "0e5b5c51-3d9f-4750-b6ba-650f8b5b1200",
+    "threadId": "c750612e-8c52-48bb-a5a8-d029b30116e6",
     "protocol": "https://didcomm.org/connections/1.0",
-    "outOfBandId": "f67ccccd-282a-4268-bef7-fb8f1a431a17"
+    "outOfBandId": "e741eeee-76f6-4c86-b1b4-5744fd794b80"
   }
 }
 
