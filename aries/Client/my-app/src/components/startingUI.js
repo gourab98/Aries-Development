@@ -8,7 +8,7 @@ const StartingUI = () => {
   const [qrcode, setQrcode] = useState("");
 
   const handleSubmit = async (e) => {
-    console.log("hello");
+    console.log("hello, Here is the invitation Link: ");
     e.preventDefault();
     try {
       const response = await fetch("http://localhost:5000/api/create-invitation", {
