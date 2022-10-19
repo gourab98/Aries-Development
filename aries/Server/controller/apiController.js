@@ -94,8 +94,8 @@ class AgentService {
         }
     }
     createInvitation = async(req,res,next) => {
-        const data = "{'connection_id': '6425ea0e-ba18-43fe-aff8-95bf8848ea0a', 'cred_def_id': 'FXd9ZjZrzGQbn2Gt2EyRLw:3:CL:113974:faber.agent.degree_schema', 'comment': 'Offer on cred def id FXd9ZjZrzGQbn2Gt2EyRLw:3:CL:113974:faber.agent.degree_schema', 'auto_remove': False, 'credential_preview': {'@type': 'https://didcomm.org/issue-credential/2.0/credential-preview', 'attributes': [{'name': 'name', 'value': 'Alice Smith'}, {'name': 'date', 'value': '2018-05-28'}, {'name': 'degree', 'value': 'Maths'}, {'name': 'birthdate_dateint', 'value': '19980204'}, {'name': 'timestamp', 'value': '1643979980'}]}, 'trace': False}";
-        // console.log(data);
+        const data ="{'service_endpoint': https://270d-27-147-234-77.ap.ngrok.io}"
+        
         let response;
         try {
             response = await httpAsync({

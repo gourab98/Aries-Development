@@ -320,7 +320,7 @@ class DemoAgent:
 
     def get_agent_args(self):
         result = [
-            ("--endpoint", self.endpoint),
+            ("--endpoint", "https://0132-27-147-234-77.ap.ngrok.io"),
             ("--label", self.label),
             "--auto-ping-connection",
             "--auto-respond-messages",

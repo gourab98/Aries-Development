@@ -5,7 +5,7 @@
 
 # the following will auto-respond on connection and credential requests, but not proof requests
 PYTHONPATH=.. ../bin/aca-py start \
-   --endpoint https://6960-27-147-234-77.ap.ngrok.io \
+   --endpoint https://0132-27-147-234-77.ap.ngrok.io \
    --label faber.agent \
    --inbound-transport http 0.0.0.0 8020 \
    --outbound-transport http \

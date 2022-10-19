@@ -3,7 +3,8 @@
 To starting this project,
 First you need to make two terminal command "npm start", one is inside "../aries$" and the other is inside "../aries/Client/my-app$".
 
-To getting response from "localhost:8021" you also need to run Swagger UI in the browser. For running Swagger UI goto aries-cloudagent python, doing changes suggested in "setup-aries-cloudagent-python-for-Swagger.txt"(You will find it on Resouse). After doing all this changes, go to "../aries-cloudagent-python/demo$" and run "LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber" in the terminal, An API(Swagger UI) will open up at port 8021. (Run docker if necessary.)
+To getting response from "localhost:8021" you also need to run Swagger UI in the browser. For running Swagger UI goto aries-cloudagent python, doing changes suggested in "setup-aries-cloudagent-python-for-Swagger.txt"(You will find it on Resouse). After doing all this changes, go to "../aries-cloudagent-python/demo$" and run "LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber --aip 10" in the terminal, An API(Swagger UI) will open up at port 8021. (Run docker if necessary.)
+
 
 
 
@@ -16,6 +17,10 @@ cd aries-cloudagent-python/demo
 LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber --aip 10
  
 You can get all these command in "https://github.com/hyperledger/aries-cloudagent-python" then go to demo folder's README file. Make sure you have written "--aip 10" after last command.
+
+ You can also run it locally. It is as same as "play with docker." First you have to open ngrok to make your ip address and port public, for this, in the terminal command "ngrok http 8020" then you have to modify two file with ngrok's forwarding url. 
+
+The file's are "../aries-cloudagent-python/demo/faber-local.sh", here in the PYTHONPATH= --endpoint url \ , change the url with ngrok forwarding url. The other is "../aries-cloudagent-python/demo/runners/support/agent.py", here in the (line 323)result= [ ("--endpoint", "url"), change the url with ngrok forwarding url. After all those done, run docker. You are all setup, now go to "../aries-cloudagent-python/demo$" and run "LEDGER_URL=http://dev.greenlight.bcovrin.vonx.io ./run_demo faber --aip 10"
 
 Now, you have to setup mobile wallet. For this follow this repo and do as says "https://github.com/hyperledger/aries-mobile-agent-react-native." If you have already setup the mobile wallet into your mobile then you are ready to go. Now just scan the qr code in the play with docker screen and sends credential from there.  
 
