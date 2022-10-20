@@ -11,7 +11,7 @@ app.use(cors());
 
 
 //routes
-app.use("/api/create-invitation", apiRoutes);
+app.use("/api", apiRoutes);
 
 const port = process.env.PORT || 5000;
 
