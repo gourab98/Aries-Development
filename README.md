@@ -1,1 +1,1 @@
-Faber agent is developed in the web browser.
+Faber Agent is in development phase in web right now.
