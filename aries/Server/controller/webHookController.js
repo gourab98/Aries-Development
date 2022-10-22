@@ -23,8 +23,7 @@ const webHooks = async (req, res, next) => {
 			// ....now decide what you need to do, for example store in a database...
 		}
 	}
-
-    // res.json({conID : response});
+    res.json({conID : conID});
   };
 
 module.exports = {webHooks};

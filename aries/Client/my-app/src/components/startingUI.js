@@ -5,37 +5,48 @@ import QRCode from "qrcode";
 const StartingUI = () => {
   const [data, setData] = useState("");
   const [qrcode, setQrcode] = useState("");
+  let connectionID;
+
+  const setValue = () =>{
+    sessionStorage.setItem('connection_id', connectionID.conID);
+  }
+  const getValue = () =>{
+    sessionStorage.getItem('connection_id');
+  }
 
   const handleSubmit = async (e) => {
-    console.log("hello, Here is the invitation Link: ");
+    console.log("Here is the invitation Link: ");
     e.preventDefault();
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/create-invitation",
+        "http://localhost:5000/create-invitation",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
         }
-      ).then(async (e) => {
-        const webhookResponse = await fetch(
-          "http://localhost:5000/api/webhooks",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        console.log(await webhookResponse.json().conID.conID);
-      });
+      );
 
       const responseData = await response.json();
       setData(responseData.data.invitation_url);
       console.log(responseData.data.invitation_url);
+
+      const webhookResponse = await fetch(
+        "http://localhost:5000/webhooks",
+        {
+          method: "POST",
+          body: JSON.stringify(responseData.data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      connectionID = await webhookResponse.json();
+      console.log("Connection_id: " +connectionID.conID)
+      setValue();
+      getValue();
     } catch (err) {
       throw err;
     }
@@ -63,12 +74,13 @@ const StartingUI = () => {
             <button className={Styles.button}>Release Credential</button>
             <button className={Styles.button}>Send Proof Request</button>
 
-            <img className={Styles.image} src={qrcode} alt="" />
+            <img className={Styles.image} src={qrcode} alt=""/>
           </div>
         </div>
       </form>
     </div>
   );
 };
+
 
 export default StartingUI;
