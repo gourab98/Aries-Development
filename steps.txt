@@ -29,4 +29,15 @@ Now, If there is any error, You have need to run mobile wallet metro to see the 
  
 
 
-
+# For ngrok starting from multiple port:
+-----------------------------------------------------------------------------------
+Go to "/Home/.config/ngrok/ngrok.yml" 
+authtoken: #############################
+tunnels:
+  first:
+    addr: 8020
+    proto: http    
+  second:
+    addr: 5000
+    proto: http  
+------------------------------------------------------------------------------------    
