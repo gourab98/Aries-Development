@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./startingUI.module.css";
 import QRCode from "qrcode";
 
@@ -33,31 +33,21 @@ const StartingUI = () => {
       setData(responseData.data.invitation_url);
       console.log(responseData.data.invitation_url);
 
-      const webhookResponse = await fetch(
-        "http://localhost:5000/webhooks",
-        {
-          method: "POST",
-          body: JSON.stringify(responseData.data),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      connectionID = await webhookResponse.json();
-      console.log("Connection_id: " +connectionID.conID)
-      setValue();
-      getValue();
     } catch (err) {
       throw err;
     }
   };
 
-  const GenerateQRCode = () => {
-    QRCode.toDataURL(data, (err, data) => {
-      if (err) return console.error(err);
-      setQrcode(data);
-    });
-  };
+  useEffect(()=>{
+    const GenerateQRCode = () => {
+      QRCode.toDataURL(data, (err, data) => {
+        if (err) return console.error(err);
+        setQrcode(data);
+      });
+    };
+    GenerateQRCode();
+  }, [data])
+ 
 
   return (
     <div className={Styles.main}>
@@ -67,7 +57,7 @@ const StartingUI = () => {
             <button
               className={Styles.button}
               type="submit"
-              onClick={GenerateQRCode}
+              // onClick={GenerateQRCode}
             >
               Create Invitation
             </button>

@@ -1,7 +1,9 @@
 const webHooks = async (req, res, next) => {
     
+	console.log("Webhooks: ");
     const conID = req.body['connection_id'] //Whenver webhooks is activated from aca-py, a connection ID is passed and you can retrieve it like this....
 	const conStatus = req.body['rfc23_state'] // Different methods have different status. You retrieve the status and then check what functionaliy was completed....
+	console.log(conID);
 	if(conID){
 		if(conStatus === "completed"){
 			console.log("Invitation Completed with conID:" + conID)

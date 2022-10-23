@@ -29,6 +29,8 @@ Now, If there is any error, You have need to run mobile wallet metro to see the 
  
 
 
+
+
 # For ngrok starting from multiple port:
 -----------------------------------------------------------------------------------
 Go to "/Home/.config/ngrok/ngrok.yml" 
@@ -41,3 +43,74 @@ tunnels:
     addr: 5000
     proto: http  
 ------------------------------------------------------------------------------------    
+
+
+
+
+
+
+# For connecting webhook:
+------------------------------------------------------------------------------------
+In the aries-cloudagent python, you have to add webhook url into two places.
+
+First: You have to add (--webhooks-url 'ngrok forwarding URL/webhooks/') in faber-local.sh("../aries-cloudagent-python/demo/faber-local.sh") folder.
+(sample:    --webhook-url https://58c0-27-147-234-77.ap.ngrok.io/webhooks/ )
+
+Second: In agent.py("../aries-cloudagent-python/demo/runners/support/agent.py") folder, you have to add your ngrok forwarding URL in self.webhook_url which is by default None and in the listen_webhooks method you have changed that to this:
+
+        else:
+            self.webhook_url = self.external_webhook_target or (
+                f"{self.webhook_url}/webhooks"
+            )
+            
+
+And for adding webhooks into your nodejs App follow the code snippets and basic instruction in the resources.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
