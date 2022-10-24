@@ -2,17 +2,10 @@ import React, { useEffect, useState } from "react";
 import Styles from "./startingUI.module.css";
 import QRCode from "qrcode";
 
+
 const StartingUI = () => {
   const [data, setData] = useState("");
   const [qrcode, setQrcode] = useState("");
-  let connectionID;
-
-  const setValue = () =>{
-    sessionStorage.setItem('connection_id', connectionID.conID);
-  }
-  const getValue = () =>{
-    sessionStorage.getItem('connection_id');
-  }
 
   const handleSubmit = async (e) => {
     console.log("Here is the invitation Link: ");
@@ -57,7 +50,6 @@ const StartingUI = () => {
             <button
               className={Styles.button}
               type="submit"
-              // onClick={GenerateQRCode}
             >
               Create Invitation
             </button>
