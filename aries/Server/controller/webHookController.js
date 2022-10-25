@@ -1,9 +1,11 @@
+const sessionStorage = require("sessionStorage");
+
 const webHooks = async (req, res, next) => {
     
 	console.log("Webhooks: ");
     const conID = req.body['connection_id'] //Whenver webhooks is activated from aca-py, a connection ID is passed and you can retrieve it like this....
 	const conStatus = req.body['rfc23_state'] // Different methods have different status. You retrieve the status and then check what functionaliy was completed....
-	console.log(conID);
+	// console.log(conID);
 	if(conID){
 		if(conStatus === "completed"){
 			console.log("Invitation Completed with conID:" + conID)
@@ -25,7 +27,13 @@ const webHooks = async (req, res, next) => {
 			// ....now decide what you need to do, for example store in a database...
 		}
 	}
-    res.json({conID : conID});
+	req.session.conID = 123;
+    req.session.save();
+    console.log(req.session.conID)
+	// sessionStorage.setItem('conID', 123);
+	// console.log(sessionStorage.getItem('conID'))
+	res.json({conID : conID});
   };
+
 
 module.exports = {webHooks};
