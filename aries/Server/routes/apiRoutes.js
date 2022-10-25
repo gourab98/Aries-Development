@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.post("/create-invitation", apiController.createInvitation);
 router.post("/webhooks/*", webHookController.webHooks);
+router.get("/ses", webHookController.session);
 
 
 module.exports = router;

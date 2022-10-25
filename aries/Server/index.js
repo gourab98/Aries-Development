@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const apiRoutes = require("./routes/apiRoutes");
 const session = require("express-session");
+const cookieParser = require("cookie-parser");
 const app = express();
 
 
@@ -11,11 +12,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 //session
+app.use(cookieParser());
 app.use(session({
     resave: true,
     saveUninitialized: true,
     secret: 'secret',
-    cookie: {secure: true}
   }));
 
 
