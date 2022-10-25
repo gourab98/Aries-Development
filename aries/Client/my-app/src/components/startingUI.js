@@ -7,7 +7,7 @@ const StartingUI = () => {
   const [data, setData] = useState("");
   const [qrcode, setQrcode] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleCreateInvitation = async (e) => {
     console.log("Here is the invitation Link: ");
     e.preventDefault();
 
@@ -41,10 +41,32 @@ const StartingUI = () => {
     GenerateQRCode();
   }, [data])
  
+  // 
+  const handleCredentialIssue = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        "http://localhost:5000/credential",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const responseData = await response.json();
+      // setData(responseData);
+      console.log(responseData);
+
+    } catch (err) {
+      throw err;
+    }
+  };
 
   return (
     <div className={Styles.main}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleCreateInvitation}>
         <div className={Styles.container}>
           <div className={Styles.childDiv}>
             <button
@@ -53,7 +75,7 @@ const StartingUI = () => {
             >
               Create Invitation
             </button>
-            <button className={Styles.button}>Release Credential</button>
+            <button className={Styles.button} onClick={handleCredentialIssue}>Release Credential</button>
             <button className={Styles.button}>Send Proof Request</button>
 
             <img className={Styles.image} src={qrcode} alt=""/>

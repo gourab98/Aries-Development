@@ -77,8 +77,8 @@ class AgentService {
         }
     }
 
-    async issueCredential() {
-        const data = "{'connection_id': '6425ea0e-ba18-43fe-aff8-95bf8848ea0a', 'cred_def_id': 'FXd9ZjZrzGQbn2Gt2EyRLw:3:CL:113974:faber.agent.degree_schema', 'comment': 'Offer on cred def id FXd9ZjZrzGQbn2Gt2EyRLw:3:CL:113974:faber.agent.degree_schema', 'auto_remove': False, 'credential_preview': {'@type': 'https://didcomm.org/issue-credential/2.0/credential-preview', 'attributes': [{'name': 'name', 'value': 'Alice Smith'}, {'name': 'date', 'value': '2018-05-28'}, {'name': 'degree', 'value': 'Maths'}, {'name': 'birthdate_dateint', 'value': '19980204'}, {'name': 'timestamp', 'value': '1643979980'}]}, 'trace': False}"
+    async issueCredential(data) {
+        ////const data = "{'connection_id': '6425ea0e-ba18-43fe-aff8-95bf8848ea0a', 'cred_def_id': 'FXd9ZjZrzGQbn2Gt2EyRLw:3:CL:113974:faber.agent.degree_schema', 'comment': 'Offer on cred def id FXd9ZjZrzGQbn2Gt2EyRLw:3:CL:113974:faber.agent.degree_schema', 'auto_remove': False, 'credential_preview': {'@type': 'https://didcomm.org/issue-credential/2.0/credential-preview', 'attributes': [{'name': 'name', 'value': 'Alice Smith'}, {'name': 'date', 'value': '2018-05-28'}, {'name': 'degree', 'value': 'Maths'}, {'name': 'birthdate_dateint', 'value': '19980204'}, {'name': 'timestamp', 'value': '1643979980'}]}, 'trace': False}"
         // console.log("At Issue Credential:", JSON.stringify(cred))
         try {
             const response = await httpAsync({
@@ -87,6 +87,7 @@ class AgentService {
                 path: '/issue-credential/send-offer',
                 method: 'POST'
             }, JSON.stringify(data));
+            // message will be shown in the web
             return response;
         } catch (error) {
             console.error(error);
@@ -172,6 +173,69 @@ class AgentService {
             return;
         }
     }
+    //
+    releaseCredential = async (req, res, next) => {
+        try {
+            const resp = await httpAsync({
+                hostname: hostname,
+                port: port,
+                path: '/credential-definitions/created',
+                method: 'GET'
+            });
+            const credID = resp.data["credential_definition_ids"][0];
+            if (credID) {
+                req.session.credID = credID;
+                const data = {
+                  auto_issue: true,
+                  auto_remove: true,
+                  connection_id: req.session.conID, // you store the session when you create an invitation via the AgentService API.
+                  cred_def_id: credID,
+                  comment: "Offer on cred def id " + credID,
+                  credential_preview: {
+                    "@type":
+                      "https://didcomm.org/issue-credential/1.0/credential-preview",
+                    attributes: [
+                      {
+                        name: "name",
+                        value: "Will Smith",
+                      },
+                      {
+                        name: "email",
+                        value: "sfr@er.et",
+                      },
+                      {
+                        name: "address",
+                        value: "Ringstraße 43, 53225 Bonn, Germany",
+                      },
+                      {
+                        name: "birthdate_dateint",
+                        value: "19980204",
+                      },
+                      {
+                        name: "role",
+                        value: "faculty",
+                      },
+                      {
+                        name: "timestamp",
+                        value: "" + Date.now(),
+                      },
+                    ],
+                  },
+                };
+        
+                // const response = axios.post("http://127.0.0.1:8021/issue-credential/send-offer", data);
+                // console.log(response);
+                this.issueCredential(data);
+                // DO what you need to do after sending the credential...may be showing a message to the website!
+        
+              }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            return;
+        }
+    }
+
 }
 
 module.exports = new AgentService();
