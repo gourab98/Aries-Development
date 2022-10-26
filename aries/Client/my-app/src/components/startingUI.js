@@ -68,6 +68,27 @@ const StartingUI = () => {
     }
   };
 
+   // Send Proof Request 
+   const handleProofReq = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        "http://localhost:5000/proofReq",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      ); 
+
+      const responseData = await response.json();
+      console.log(responseData);
+    } catch (err) {
+      throw err;
+    }
+  };
+
   return (
     <div className={Styles.main}>
       <form>
@@ -81,7 +102,7 @@ const StartingUI = () => {
               Create Invitation
             </button>
             <button className={Styles.button} onClick={handleCredentialIssue} type="submit">Release Credential</button>
-            <button className={Styles.button}>Send Proof Request</button>
+            <button className={Styles.button} onClick={handleProofReq} type="submit">Send Proof Request</button>
 
             <img className={Styles.image} src={qrcode} alt=""/>
             {screenMsg? <p>Successfully Issued Credential to this {screenMsg}</p> : <p></p>}

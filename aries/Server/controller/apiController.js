@@ -1,5 +1,6 @@
 const data = require("../storage/data")
 const http = require('http');
+const { response } = require("express");
 
 const hostname = process.env.ACME_AGENT_HOST || 'localhost';
 const port = 8021;
@@ -160,14 +161,15 @@ class AgentService {
         }
     }
 
-    async sendProofRequest(proofRequest) {
+    async sendProofRequest(data) {
         try {
-            await httpAsync({
+            const response = await httpAsync({
                 hostname: hostname,
                 port: port,
-                path: '/present-proof/send-request',
+                path: encodeURI('/present-proof/send-request'),
                 method: 'POST'
-            }, proofRequest);
+            }, data);
+            return response;
         } catch (error) {
             console.error(error);
         } finally {
@@ -222,7 +224,6 @@ class AgentService {
                   trace: true
                 }
                 const retrieveCredential = await this.issueCredential(value);
-                console.log(retrieveCredential);
                 res.json({Data: retrieveCredential});
                 // DO what you need to do after sending the credential...may be showing a message to the website!
               }
@@ -232,6 +233,55 @@ class AgentService {
             return;
         }
     }
+    //
+    ProrfReq = async (req, res, next) => {
+
+        console.log("At Proof Request!");
+	    let role = "";
+	    if(req.session.reqPage === "Page1") role = "student";
+	    else if(req.session.reqPage === "Page2") role = "faculty";
+	    
+        try {
+          const response = await httpAsync({
+                hostname: hostname,
+                port: port,
+                path: encodeURI('/credential-definitions/created'),
+                method: 'GET'
+            });
+            const credID = response.credential_definition_ids[0];
+            if(req.cookies.conID){ // Retrieve the Connection ID from thei cookie. Remember, without connection ID you can't do anything...
+				console.log("Connection ID:", req.cookies.conID) 
+				const data = {
+					connection_id: `${req.cookies.conID}`,
+					proof_request: {
+						name: "Proof of Role",
+						version: "1.0",
+						requested_attributes: {
+							"0_role": {
+								name: "role",
+								value: "role",
+								restrictions: [
+									{
+										schema_name: "web schema"
+									}
+								]
+							}
+						},
+						requested_predicates: {}
+					}
+				};
+                const responseData = await this.sendProofRequest(data);
+                if(responseData.ok) console.log("dummy proof page");
+                else console.log("something error happend");
+                // res.json({});
+                
+              }
+        } catch (error) {
+            console.log(error);
+        } finally {
+            return;
+        }
+    } 
 
 }
 
