@@ -89,7 +89,6 @@ class AgentService {
                     'content-type' : 'application/json'
                 }
             }, JSON.stringify(data));
-            // message will be shown in the web
             return response;
         } catch (error) {
             console.error(error);
@@ -186,7 +185,6 @@ class AgentService {
                 method: 'GET'
             });
             const credID = resp.credential_definition_ids[0];
-
             if (credID) {
                 req.session.credID = credID;
                 const value = {
@@ -217,15 +215,16 @@ class AgentService {
                           },
                           {
                             name: "date",
-                            value: "26,Oct,2022"
+                            value: `${Date.now()}`
                           }
                     ],
                   },
                   trace: true
                 }
-                this.issueCredential(value);
+                const retrieveCredential = await this.issueCredential(value);
+                console.log(retrieveCredential);
+                res.json({Data: retrieveCredential});
                 // DO what you need to do after sending the credential...may be showing a message to the website!
-        
               }
         } catch (error) {
             console.error(error);

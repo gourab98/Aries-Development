@@ -6,6 +6,7 @@ import QRCode from "qrcode";
 const StartingUI = () => {
   const [data, setData] = useState("");
   const [qrcode, setQrcode] = useState("");
+  const [screenMsg, setScreenMsg] = useState(""); 
 
   // Create Invitation
   const handleCreateInvitation = async (e) => {
@@ -24,6 +25,7 @@ const StartingUI = () => {
       );
 
       const responseData = await response.json();
+      setScreenMsg("");
       setData(responseData.data.invitation_url);
       console.log(responseData.data.invitation_url);
 
@@ -55,10 +57,12 @@ const StartingUI = () => {
           },
         }
       ); 
-      
+
       const responseData = await response.json();
-      // setData(responseData);
-      console.log(responseData);
+      if(response.ok){
+          setScreenMsg(responseData.Data.connection_id);
+          console.log(responseData.Data.connection_id);
+      }
     } catch (err) {
       throw err;
     }
@@ -80,6 +84,7 @@ const StartingUI = () => {
             <button className={Styles.button}>Send Proof Request</button>
 
             <img className={Styles.image} src={qrcode} alt=""/>
+            {screenMsg? <p>Successfully Issued Credential to this {screenMsg}</p> : <p></p>}
           </div>
         </div>
       </form>
