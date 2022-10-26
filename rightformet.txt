@@ -1,0 +1,33 @@
+{  "auto_issue": true,
+       "auto_remove": true,
+       "comment": "Offer on cred def id UoCy8ADRS9fzaxVmNLf7h4:3:CL:155269:faber.agent.degree_schema",
+       "connection_id": "18db5d9b-af9f-46dc-b17e-dd2345d5400d",
+       "cred_def_id": "UoCy8ADRS9fzaxVmNLf7h4:3:CL:155269:faber.agent.degree_schema",
+       "credential_preview": {
+         "@type": "https://didcomm.org/issue-credential/1.0/credential-preview",
+       "attributes": [
+                           {
+                             "name": "birthdate_dateint",
+                             "value": "34895495454"
+                           },
+                           {
+                             "name": "name",
+                             "value": "Farhad"
+                           },
+                           {
+                             "name": "timestamp",
+                             "value": "9:56:34"
+                           },
+                           {
+                             "name": "degree",
+                             "value": "Physics"
+                           },
+                           {
+                             "name": "date",
+                             "value": "26,Oct,2022"
+                           }
+                         ]
+       },
+       "trace": true
+     
+}

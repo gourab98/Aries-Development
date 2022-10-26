@@ -1,3 +1,5 @@
+const data = require("../storage/data");
+
 const webHooks = async (req, res, next) => {
     
 	console.log("Webhooks: ");
@@ -25,14 +27,18 @@ const webHooks = async (req, res, next) => {
 			// ....now decide what you need to do, for example store in a database...
 		}
 	}
-	req.session.conID = 123;
+	req.session.conID = conID;
     req.session.save();
-    console.log(req.session.conID);
-	res.json({conID : conID});
+    // console.log(req.session.conID);
+	// res.json({conID : conID});
+
+	data.added(conID)
+	console.log("Connection_id : "+data.data)
   };
 
 const session = async (req, res, next) =>{
-	console.log(req.session.conID);
+	// console.log(req.session.conID);
+	console.log("This is from session: "+ data.data);
   	res.send("hello");
 }
 

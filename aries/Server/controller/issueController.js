@@ -1,10 +1,12 @@
-// const data = require("./storage/data");
+const data = require("../storage/data");
+const apiController = require("./apiController");
 
 const Issue = async (req, res, next) => {
   axios
     .get("http://127.0.0.1:8021/credential-definitions/created") //use this get the credential ID
     .then((resp) => {
-      const credID = resp.data["credential_definition_ids"][0];
+      // const credID = resp.data["credential_definition_ids"][0];
+      const credID = data.data; 
 
       if (credID) {
         req.session.credID = credID;

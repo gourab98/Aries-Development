@@ -180,7 +180,7 @@ class DemoAgent:
             self.endpoint = f"http://{self.external_host}:{http_port}"
 
         self.webhook_port = None
-        self.webhook_url = "https://58c0-27-147-234-77.ap.ngrok.io" 
+        self.webhook_url = "https://96a8-27-147-234-77.ap.ngrok.io" 
         self.webhook_site = None
         self.params = params
         self.proc = None
@@ -320,7 +320,7 @@ class DemoAgent:
 
     def get_agent_args(self):
         result = [
-            ("--endpoint", "https://c9b8-27-147-234-77.ap.ngrok.io"),
+            ("--endpoint", "https://6c64-27-147-234-77.ap.ngrok.io"),
             ("--label", self.label),
             "--auto-ping-connection",
             "--auto-respond-messages",

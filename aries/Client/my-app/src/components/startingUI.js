@@ -7,6 +7,7 @@ const StartingUI = () => {
   const [data, setData] = useState("");
   const [qrcode, setQrcode] = useState("");
 
+  // Create Invitation
   const handleCreateInvitation = async (e) => {
     console.log("Here is the invitation Link: ");
     e.preventDefault();
@@ -41,7 +42,7 @@ const StartingUI = () => {
     GenerateQRCode();
   }, [data])
  
-  // 
+  // Release Credential 
   const handleCredentialIssue = async (e) => {
     e.preventDefault();
     try {
@@ -53,8 +54,8 @@ const StartingUI = () => {
             "Content-Type": "application/json",
           },
         }
-      );
-
+      ); 
+      
       const responseData = await response.json();
       // setData(responseData);
       console.log(responseData);
