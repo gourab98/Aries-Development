@@ -88,6 +88,7 @@ class AgentService {
                 method: 'POST'
             }, JSON.stringify(data));
             // message will be shown in the web
+            console.log("hello")
             return response;
         } catch (error) {
             console.error(error);

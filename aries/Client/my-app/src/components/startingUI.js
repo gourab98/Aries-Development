@@ -58,7 +58,6 @@ const StartingUI = () => {
       const responseData = await response.json();
       // setData(responseData);
       console.log(responseData);
-
     } catch (err) {
       throw err;
     }
@@ -66,16 +65,17 @@ const StartingUI = () => {
 
   return (
     <div className={Styles.main}>
-      <form onSubmit={handleCreateInvitation}>
+      <form>
         <div className={Styles.container}>
           <div className={Styles.childDiv}>
             <button
               className={Styles.button}
               type="submit"
+              onClick={handleCreateInvitation}
             >
               Create Invitation
             </button>
-            <button className={Styles.button} onClick={handleCredentialIssue}>Release Credential</button>
+            <button className={Styles.button} onClick={handleCredentialIssue} type="submit">Release Credential</button>
             <button className={Styles.button}>Send Proof Request</button>
 
             <img className={Styles.image} src={qrcode} alt=""/>
