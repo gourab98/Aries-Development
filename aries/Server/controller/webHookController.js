@@ -21,7 +21,7 @@ const webHooks = async (req, res, next) => {
 			const decodedString = Buffer.from(base64data, "base64");
 			const jsonData = JSON.parse(decodedString.toString());
 			proofStatus = true
-			retrievedAttribute = jsonData['requested_attributes']['0_role']['value']
+			// retrievedAttribute = jsonData['requested_attributes']['0_role']['value']
 			// ....now decide what you need to do, for example store in a database...
 		}
 	}
@@ -31,6 +31,7 @@ const webHooks = async (req, res, next) => {
 	// res.json({conID : conID});
 
 	data.added(conID)
+	// console.log("Webhook: "+data.data)
   };
 
 

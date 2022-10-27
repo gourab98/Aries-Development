@@ -97,7 +97,7 @@ class AgentService {
         }
     }
     createInvitation = async(req,res,next) => {
-        const data ="{'service_endpoint': https://6c64-27-147-234-77.ap.ngrok.io}";
+        const data ="{'service_endpoint': https://4a26-27-147-234-77.ap.ngrok.io}";
         
         let response;
         try {
@@ -167,8 +167,11 @@ class AgentService {
                 hostname: hostname,
                 port: port,
                 path: encodeURI('/present-proof/send-request'),
-                method: 'POST'
-            }, data);
+                method: 'POST',
+                headers:{
+                    'content-type': 'application/json'
+                }
+            }, JSON.stringify(data));
             return response;
         } catch (error) {
             console.error(error);
@@ -236,10 +239,9 @@ class AgentService {
     //
     ProrfReq = async (req, res, next) => {
 
-        console.log("At Proof Request!");
-	    let role = "";
-	    if(req.session.reqPage === "Page1") role = "student";
-	    else if(req.session.reqPage === "Page2") role = "faculty";
+	    let role = "student";
+	    // if(req.session.reqPage === "Page1") role = "student";
+	    // else if(req.session.reqPage === "Page2") role = "faculty";
 	    
         try {
           const response = await httpAsync({
@@ -249,20 +251,41 @@ class AgentService {
                 method: 'GET'
             });
             const credID = response.credential_definition_ids[0];
-            if(req.cookies.conID){ // Retrieve the Connection ID from thei cookie. Remember, without connection ID you can't do anything...
-				console.log("Connection ID:", req.cookies.conID) 
-				const data = {
-					connection_id: `${req.cookies.conID}`,
+            if(data.data){ // Retrieve the Connection ID from thei cookie. Remember, without connection ID you can't do anything...
+				console.log("Cred ID:", credID) 
+				const value = {
+                    auto_verify: true,
+					connection_id: `${data.data}`,
+                    cred_def_id: `${credID}`,
+                    comment: `Offer on cred def id ${credID}`,
 					proof_request: {
 						name: "Proof of Role",
 						version: "1.0",
 						requested_attributes: {
-							"0_role": {
-								name: "role",
-								value: "role",
-								restrictions: [
+							Name: {
+								name: "name",
+								value: "Will Smith",
+								restriction: [
 									{
-										schema_name: "web schema"
+										additionalProp1: `${credID}`
+									}
+								]
+							},
+                            Name: {
+								name: "degree",
+								value: "Math",
+								restriction: [
+									{
+										additionalProp1: `${credID}`
+									}
+								]
+							},
+                            Name: {
+								name: "birthdate_dateint",
+                                value: "34895495454",
+								restriction: [
+									{
+										additionalProp1: `${credID}`
 									}
 								]
 							}
@@ -270,9 +293,7 @@ class AgentService {
 						requested_predicates: {}
 					}
 				};
-                const responseData = await this.sendProofRequest(data);
-                if(responseData.ok) console.log("dummy proof page");
-                else console.log("something error happend");
+                const responseData = await this.sendProofRequest(value);
                 // res.json({});
                 
               }
