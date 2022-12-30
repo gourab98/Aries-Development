@@ -5,7 +5,7 @@
 
 # the following will auto-respond on connection and credential requests, but not proof requests
 PYTHONPATH=.. ../bin/aca-py start \
-   --endpoint https://4780-27-147-234-77.ap.ngrok.io \
+   --endpoint https://fd20-27-147-234-77.ap.ngrok.io \
    --label faber.agent \
    --inbound-transport http 0.0.0.0 8020 \
    --outbound-transport http \
@@ -28,7 +28,7 @@ PYTHONPATH=.. ../bin/aca-py start \
    --auto-respond-credential-offer \
    --auto-respond-credential-request \
    --auto-store-credential \
-   --webhook-url https://6594-27-147-234-77.ap.ngrok.io/webhooks/
+   --webhook-url https://770b-27-147-234-77.ap.ngrok.io/webhooks/
 
 # set these for full auto
 #   --auto-respond-presentation-proposal \

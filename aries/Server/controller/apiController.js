@@ -97,7 +97,7 @@ class AgentService {
         }
     }
     createInvitation = async(req,res,next) => {
-        const data ="{'service_endpoint': https://4a26-27-147-234-77.ap.ngrok.io}";
+        const data ="{'service_endpoint': https://7075-27-147-234-77.ap.ngrok.io}";
         
         let response;
         try {
